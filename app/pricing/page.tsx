@@ -6,30 +6,30 @@ export default function PricingPage() {
     <>
       <Header />
       <main className="flex-1">
-        <section className="border-b border-zinc-200 py-20 dark:border-zinc-800">
+        <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
           <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-            <h1 className="text-4xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-50">Pricing</h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
+            <h1 className="text-3xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-50">Pricing</h1>
+            <p className="mx-auto mt-3 max-w-2xl text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">
               Flexible pricing options for businesses of every size. No hidden fees.
             </p>
           </div>
         </section>
 
-        <section className="border-b border-zinc-200 py-20 dark:border-zinc-800">
+        <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="grid gap-8 md:grid-cols-2 lg:mx-auto lg:max-w-4xl">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:mx-auto lg:max-w-4xl">
               {/* Permanent License */}
-              <div className="relative rounded-xl border-2 border-indigo-600 p-8 shadow-lg dark:border-indigo-500">
-                <span className="absolute -top-3 left-6 rounded-full bg-indigo-600 px-4 py-1 text-xs font-semibold text-white">
+              <div className="relative rounded-xl border-2 border-indigo-600 p-6 shadow-lg sm:p-8 dark:border-indigo-500">
+                <span className="absolute -top-3 left-4 rounded-full bg-indigo-600 px-3 py-0.5 text-xs font-semibold text-white sm:left-6 sm:px-4 sm:py-1">
                   Best Value
                 </span>
-                <h3 className="mb-1 text-xl font-semibold text-zinc-900 dark:text-zinc-50">Permanent License</h3>
-                <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">Own it forever. Pay once.</p>
+                <h3 className="mb-1 text-lg font-semibold text-zinc-900 sm:text-xl dark:text-zinc-50">Permanent License</h3>
+                <p className="mb-4 text-sm text-zinc-600 sm:mb-6 dark:text-zinc-400">Own it forever. Pay once.</p>
                 <p className="mb-1">
-                  <span className="text-5xl font-bold text-zinc-900 dark:text-zinc-50">Contact us</span>
+                  <span className="text-3xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-50">Contact us</span>
                 </p>
-                <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">for a custom quote based on your needs</p>
-                <ul className="mb-8 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+                <p className="mb-4 text-sm text-zinc-600 sm:mb-6 dark:text-zinc-400">for a custom quote based on your needs</p>
+                <ul className="mb-6 space-y-2 text-sm text-zinc-600 sm:mb-8 sm:space-y-3 dark:text-zinc-400">
                   {[
                     'Full license ownership',
                     'Yearly service charge for updates & support',
@@ -46,21 +46,21 @@ export default function PricingPage() {
                 </ul>
                 <a
                   href="/contact"
-                  className="block rounded-lg bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-indigo-500"
+                  className="block rounded-lg bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-indigo-500 active:bg-indigo-700"
                 >
                   Get a Quote
                 </a>
               </div>
 
               {/* Monthly Service */}
-              <div className="rounded-xl border border-zinc-200 p-8 dark:border-zinc-800">
-                <h3 className="mb-1 text-xl font-semibold text-zinc-900 dark:text-zinc-50">Monthly Service</h3>
-                <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">Flexible, month-to-month.</p>
+              <div className="rounded-xl border border-zinc-200 p-6 sm:p-8 dark:border-zinc-800">
+                <h3 className="mb-1 text-lg font-semibold text-zinc-900 sm:text-xl dark:text-zinc-50">Monthly Service</h3>
+                <p className="mb-4 text-sm text-zinc-600 sm:mb-6 dark:text-zinc-400">Flexible, month-to-month.</p>
                 <p className="mb-1">
-                  <span className="text-5xl font-bold text-zinc-900 dark:text-zinc-50">Contact us</span>
+                  <span className="text-3xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-50">Contact us</span>
                 </p>
-                <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">for pricing based on your requirements</p>
-                <ul className="mb-8 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+                <p className="mb-4 text-sm text-zinc-600 sm:mb-6 dark:text-zinc-400">for pricing based on your requirements</p>
+                <ul className="mb-6 space-y-2 text-sm text-zinc-600 sm:mb-8 sm:space-y-3 dark:text-zinc-400">
                   {[
                     'No long-term commitment',
                     'Cloud-hosted or on-premise',
@@ -77,7 +77,7 @@ export default function PricingPage() {
                 </ul>
                 <a
                   href="/contact"
-                  className="block rounded-lg border border-zinc-300 px-6 py-3 text-center text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800"
+                  className="block rounded-lg border border-zinc-300 px-6 py-3 text-center text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800 dark:active:bg-zinc-700"
                 >
                   Get Started
                 </a>
@@ -86,12 +86,12 @@ export default function PricingPage() {
           </div>
         </section>
 
-        <section className="py-20">
+        <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className="mb-12 text-center text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">
+            <h2 className="mb-8 text-center text-2xl font-bold text-zinc-900 sm:mb-12 sm:text-4xl dark:text-zinc-50">
               Frequently Asked Questions
             </h2>
-            <div className="mx-auto max-w-3xl space-y-8">
+            <div className="mx-auto max-w-3xl space-y-6 sm:space-y-8">
               {[
                 {
                   q: 'What is the yearly service charge?',
@@ -111,8 +111,8 @@ export default function PricingPage() {
                 },
               ].map((faq) => (
                 <div key={faq.q}>
-                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">{faq.q}</h3>
-                  <p className="mt-2 text-zinc-600 dark:text-zinc-400">{faq.a}</p>
+                  <h3 className="text-base font-semibold text-zinc-900 sm:text-lg dark:text-zinc-50">{faq.q}</h3>
+                  <p className="mt-1 text-sm leading-6 text-zinc-600 sm:mt-2 sm:text-base dark:text-zinc-400">{faq.a}</p>
                 </div>
               ))}
             </div>
