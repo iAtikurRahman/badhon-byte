@@ -1,16 +1,29 @@
+'use client'
+
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { useTranslation } from '@/components/LanguageProvider'
 
 export default function ContactPage() {
+  const { t } = useTranslation()
+
+  const subjects = [
+    { value: 'erp', key: 'contactPage.formSubjectErp' as const },
+    { value: 'pos', key: 'contactPage.formSubjectPos' as const },
+    { value: 'custom', key: 'contactPage.formSubjectCustom' as const },
+    { value: 'support', key: 'contactPage.formSubjectSupport' as const },
+    { value: 'other', key: 'contactPage.formSubjectOther' as const },
+  ]
+
   return (
     <>
       <Header />
       <main className="flex-1">
         <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
           <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-            <h1 className="text-3xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-50">Contact Us</h1>
+            <h1 className="text-3xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-50">{t('contactPage.title')}</h1>
             <p className="mx-auto mt-3 max-w-2xl text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">
-              Have a question or ready to get started? We&apos;d love to hear from you.
+              {t('contactPage.subtitle')}
             </p>
           </div>
         </section>
@@ -19,66 +32,64 @@ export default function ContactPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="grid gap-10 md:grid-cols-2 md:gap-12">
               <div>
-                <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl dark:text-zinc-50">Get in Touch</h2>
+                <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl dark:text-zinc-50">{t('contactPage.formTitle')}</h2>
                 <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
-                  Fill out the form and we&apos;ll get back to you within 24 hours.
+                  {t('contactPage.formDesc')}
                 </p>
 
                 <form className="mt-6 space-y-4 sm:mt-8 sm:space-y-6">
                   <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-zinc-900 dark:text-zinc-50">
-                        Name
+                        {t('contactPage.formName')}
                       </label>
                       <input
                         type="text"
                         id="name"
                         required
                         className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 transition-colors focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-500"
-                        placeholder="Your name"
+                        placeholder={t('contactPage.formNamePlaceholder')}
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-zinc-900 dark:text-zinc-50">
-                        Email
+                        {t('contactPage.formEmail')}
                       </label>
                       <input
                         type="email"
                         id="email"
                         required
                         className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 transition-colors focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-500"
-                        placeholder="you@example.com"
+                        placeholder={t('contactPage.formEmailPlaceholder')}
                       />
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-zinc-900 dark:text-zinc-50">
-                      Subject
+                      {t('contactPage.formSubject')}
                     </label>
                     <select
                       id="subject"
                       className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 transition-colors focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                     >
-                      <option value="">Select a subject</option>
-                      <option value="erp">ERP Software</option>
-                      <option value="pos">POS Software</option>
-                      <option value="custom">Custom Development</option>
-                      <option value="support">Support</option>
-                      <option value="other">Other</option>
+                      <option value="">{t('contactPage.formSubjectPlaceholder')}</option>
+                      {subjects.map((s) => (
+                        <option key={s.value} value={s.value}>{t(s.key)}</option>
+                      ))}
                     </select>
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-zinc-900 dark:text-zinc-50">
-                      Message
+                      {t('contactPage.formMessage')}
                     </label>
                     <textarea
                       id="message"
                       rows={5}
                       required
                       className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 transition-colors focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-500"
-                      placeholder="Tell us about your needs..."
+                      placeholder={t('contactPage.formMessagePlaceholder')}
                     />
                   </div>
 
@@ -86,14 +97,14 @@ export default function ContactPage() {
                     type="submit"
                     className="w-full rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-500 active:bg-indigo-700 sm:w-auto"
                   >
-                    Send Message
+                    {t('contactPage.formBtn')}
                   </button>
                 </form>
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl dark:text-zinc-50">Our Office</h2>
-                <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">Visit us or reach out through any of these channels.</p>
+                <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl dark:text-zinc-50">{t('contactPage.officeTitle')}</h2>
+                <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">{t('contactPage.officeDesc')}</p>
 
                 <div className="mt-6 space-y-5 sm:mt-8 sm:space-y-6">
                   <div className="flex gap-3 sm:gap-4">
@@ -104,11 +115,11 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Address</h3>
+                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">{t('contactPage.addressLabel')}</h3>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                        Hightech Office, Rajpara
+                        {t('contactPage.addressLine1')}
                         <br />
-                        Rajshahi, Bangladesh
+                        {t('contactPage.addressLine2')}
                       </p>
                     </div>
                   </div>
@@ -120,9 +131,9 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Email</h3>
+                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">{t('contactPage.emailLabel')}</h3>
                       <p className="break-all text-sm text-zinc-600 dark:text-zinc-400">
-                        contact@badhonbyte.com
+                        {t('contactPage.emailValue')}
                       </p>
                     </div>
                   </div>
@@ -134,9 +145,9 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Phone</h3>
+                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">{t('contactPage.phoneLabel')}</h3>
                       <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                        +880 1234-567890
+                        {t('contactPage.phoneValue')}
                       </p>
                     </div>
                   </div>
