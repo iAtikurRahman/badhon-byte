@@ -12,9 +12,7 @@ export default function Footer() {
   ]
 
   const usefulLinks = [
-    { href: '/about', key: 'nav.about' as const },
     { href: '/team', key: 'nav.team' as const },
-    { href: '/blog', key: 'nav.blog' as const },
     { href: '/contact', key: 'nav.contact' as const },
     { href: '/faq', key: 'nav.faq' as const },
   ]

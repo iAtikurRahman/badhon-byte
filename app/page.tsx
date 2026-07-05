@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -8,7 +8,6 @@ import { useTranslation } from '@/components/LanguageProvider'
 
 export default function Home() {
   const { t } = useTranslation()
-  const [openIndex, setOpenIndex] = useState(0)
 
   return (
     <>
@@ -133,50 +132,6 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ===== About ===== */}
-        <section id="about" className="about-area">
-          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
-                <div className="about-thumb">
-                  <div style={{
-                    width: '100%',
-                    height: '400px',
-                    background: 'linear-gradient(135deg, rgba(255,60,0,0.08) 0%, rgba(255,60,0,0.02) 100%)',
-                    borderRadius: '16px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid rgba(255,60,0,0.1)',
-                    position: 'relative',
-                  }}>
-                    <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
-                      <circle cx="140" cy="140" r="120" stroke="#ff3c00" strokeWidth="2" strokeDasharray="8 4" fill="rgba(255,60,0,0.05)" />
-                      <path d="M140 60 L180 110 L160 110 L160 170 L120 170 L120 110 L100 110 L140 60Z" fill="rgba(255,60,0,0.2)" />
-                      <rect x="110" y="180" width="60" height="40" rx="4" fill="rgba(255,60,0,0.15)" />
-                      <text x="140" y="205" textAnchor="middle" fill="#ff3c00" fontSize="12" fontWeight="600">BADHON BYTE</text>
-                    </svg>
-                    <h4 className="about-title">{t('aboutPage.officeTitle')}</h4>
-                  </div>
-                </div>
-              </div>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
-                <div className="section-title text-left">
-                  <h5 className="section-sub-title">{t('servicesPage.title')}</h5>
-                  <h1 className="section-main-title">
-                    {t('aboutPage.storyTitle')}
-                  </h1>
-                </div>
-                <div className="about-text">
-                  <p style={{ fontSize: '15px', lineHeight: '26px', color: '#7a7a7a', marginBottom: '0' }}>
-                    {t('aboutPage.storyP1')}
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -383,56 +338,6 @@ export default function Home() {
                 <Link href="/contact" className="badhon-btn badhon-btn-outline" style={{ width: '100%', textAlign: 'center', padding: '14px 20px', fontSize: '14px' }}>
                   {t('pricingPage.monthlyBtn')}
                 </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ===== FAQ ===== */}
-        <section className="faq-area">
-          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
-            <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '50px' }}>
-              <h5 className="section-sub-title">{t('pricingPage.title')}</h5>
-              <h1 className="section-main-title">{t('pricingPage.faqTitle')}</h1>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
-                <div style={{
-                  width: '100%',
-                  height: '350px',
-                  background: 'linear-gradient(135deg, rgba(255,60,0,0.05) 0%, transparent 100%)',
-                  borderRadius: '16px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  border: '1px solid rgba(255,60,0,0.08)',
-                }}>
-                  <svg width="220" height="220" viewBox="0 0 200 200" fill="none">
-                    <circle cx="100" cy="80" r="40" fill="rgba(255,60,0,0.08)" stroke="#ff3c00" strokeWidth="1.5" />
-                    <text x="100" y="88" textAnchor="middle" fill="#ff3c00" fontSize="28" fontWeight="700">?</text>
-                    <rect x="50" y="135" width="100" height="8" rx="4" fill="rgba(255,60,0,0.15)" />
-                    <rect x="60" y="150" width="80" height="8" rx="4" fill="rgba(255,60,0,0.08)" />
-                  </svg>
-                </div>
-              </div>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
-                <div className="feq-content">
-                  <ul className="accordion">
-                    {[
-                      { q: 'pricingPage.faqQ1' as const, a: 'pricingPage.faqA1' as const },
-                      { q: 'pricingPage.faqQ2' as const, a: 'pricingPage.faqA2' as const },
-                      { q: 'pricingPage.faqQ3' as const, a: 'pricingPage.faqA3' as const },
-                      { q: 'pricingPage.faqQ4' as const, a: 'pricingPage.faqA4' as const },
-                    ].map((faq, i) => (
-                      <li key={i} className={`cs_accordian ${i === openIndex ? 'active' : ''}`}>
-                        <a onClick={() => setOpenIndex(i === openIndex ? -1 : i)}>
-                          <span>{t(faq.q)}</span>
-                        </a>
-                        <p>{t(faq.a)}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
           </div>

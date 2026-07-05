@@ -49,14 +49,14 @@ export const translations = {
 
     'contactPreview.title': 'Visit Our Office',
     'contactPreview.subtitle': 'We\u2019d love to hear from you. Drop by or reach out.',
-    'contactPreview.address': 'Hightech Office, Rajpara',
+    'contactPreview.address': 'Level-8, SS Tower, Fire Service Mor',
     'contactPreview.location': 'Rajshahi, Bangladesh',
     'contactPreview.btn': 'Contact Us',
 
     'footer.desc': 'Building powerful software solutions for businesses. ERP, POS, and custom software development.',
     'footer.quickLinks': 'Quick Links',
     'footer.office': 'Office',
-    'footer.officeAddress': 'Hightech Office, Rajpara',
+    'footer.officeAddress': 'Level-8, SS Tower, Fire Service Mor',
     'footer.officeLocation': 'Rajshahi, Bangladesh',
     'footer.copyright': 'All rights reserved.',
 
@@ -142,8 +142,8 @@ export const translations = {
     'aboutPage.why4Title': 'Reliable & Secure',
     'aboutPage.why4Desc': 'Your data is safe with enterprise-grade security practices.',
     'aboutPage.officeTitle': 'Visit Our Office',
-    'aboutPage.officeDesc': 'We\u2019re located at Hightech Office, Rajpara, Rajshahi. Drop by for a chat.',
-    'aboutPage.officeAddress': 'Hightech Office, Rajpara, Rajshahi, Bangladesh',
+    'aboutPage.officeDesc': 'We\u2019re located at Level-8, SS Tower, Fire Service Mor, Rajshahi. Drop by for a chat.',
+    'aboutPage.officeAddress': 'Level-8, SS Tower, Fire Service Mor, Rajshahi',
 
     'contactPage.title': 'Contact Us',
     'contactPage.subtitle': 'Have a question or ready to get started? We\u2019d love to hear from you.',
@@ -166,12 +166,12 @@ export const translations = {
     'contactPage.officeTitle': 'Our Office',
     'contactPage.officeDesc': 'Visit us or reach out through any of these channels.',
     'contactPage.addressLabel': 'Address',
-    'contactPage.addressLine1': 'Hightech Office, Rajpara',
+    'contactPage.addressLine1': 'Level-8, SS Tower, Fire Service Mor',
     'contactPage.addressLine2': 'Rajshahi, Bangladesh',
     'contactPage.emailLabel': 'Email',
-    'contactPage.emailValue': 'contact@badhonbyte.com',
+    'contactPage.emailValue': 'mir.badhonkabir@gmail.com',
     'contactPage.phoneLabel': 'Phone',
-    'contactPage.phoneValue': '+880 1234-567890',
+    'contactPage.phoneValue': '+8801889483333',
   },
 
   bn: {
@@ -224,14 +224,14 @@ export const translations = {
 
     'contactPreview.title': 'আমাদের অফিসে আসুন',
     'contactPreview.subtitle': 'আমরা আপনার কাছ থেকে শুনতে চাই। দেখা করুন অথবা যোগাযোগ করুন।',
-    'contactPreview.address': 'হাইটেক অফিস, রাজপাড়া',
+    'contactPreview.address': 'লেভেল-৮, এসএস টাওয়ার, ফায়ার সার্ভিস মোড়',
     'contactPreview.location': 'রাজশাহী, বাংলাদেশ',
     'contactPreview.btn': 'যোগাযোগ করুন',
 
     'footer.desc': 'ব্যবসার জন্য শক্তিশালী সফটওয়্যার সমাধান তৈরি করছি। ইআরপি, পিওএস এবং কাস্টম সফটওয়্যার ডেভেলপমেন্ট।',
     'footer.quickLinks': 'দ্রুত লিংক',
     'footer.office': 'অফিস',
-    'footer.officeAddress': 'হাইটেক অফিস, রাজপাড়া',
+    'footer.officeAddress': 'লেভেল-৮, এসএস টাওয়ার, ফায়ার সার্ভিস মোড়',
     'footer.officeLocation': 'রাজশাহী, বাংলাদেশ',
     'footer.copyright': 'সর্বস্বত্ব সংরক্ষিত।',
 
@@ -317,8 +317,8 @@ export const translations = {
     'aboutPage.why4Title': 'নির্ভরযোগ্য ও সুরক্ষিত',
     'aboutPage.why4Desc': 'আপনার ডেটা এন্টারপ্রাইজ-গ্রেড সিকিউরিটি প্র্যাকটিস সহ সুরক্ষিত।',
     'aboutPage.officeTitle': 'আমাদের অফিসে আসুন',
-    'aboutPage.officeDesc': 'আমরা হাইটেক অফিস, রাজপাড়া, রাজশাহীতে অবস্থিত। দেখা করতে আসুন।',
-    'aboutPage.officeAddress': 'হাইটেক অফিস, রাজপাড়া, রাজশাহী, বাংলাদেশ',
+    'aboutPage.officeDesc': 'আমরা লেভেল-৮, এসএস টাওয়ার, ফায়ার সার্ভিস মোড়, রাজশাহীতে অবস্থিত। দেখা করতে আসুন।',
+    'aboutPage.officeAddress': 'লেভেল-৮, এসএস টাওয়ার, ফায়ার সার্ভিস মোড়, রাজশাহী',
 
     'contactPage.title': 'যোগাযোগ করুন',
     'contactPage.subtitle': 'কোনো প্রশ্ন আছে বা শুরু করতে প্রস্তুত? আমরা আপনার কাছ থেকে শুনতে চাই।',
@@ -341,12 +341,12 @@ export const translations = {
     'contactPage.officeTitle': 'আমাদের অফিস',
     'contactPage.officeDesc': 'আমাদের দেখতে আসুন বা যেকোনো মাধ্যমে যোগাযোগ করুন।',
     'contactPage.addressLabel': 'ঠিকানা',
-    'contactPage.addressLine1': 'হাইটেক অফিস, রাজপাড়া',
+    'contactPage.addressLine1': 'লেভেল-৮, এসএস টাওয়ার, ফায়ার সার্ভিস মোড়',
     'contactPage.addressLine2': 'রাজশাহী, বাংলাদেশ',
     'contactPage.emailLabel': 'ইমেইল',
-    'contactPage.emailValue': 'contact@badhonbyte.com',
+    'contactPage.emailValue': 'mir.badhonkabir@gmail.com',
     'contactPage.phoneLabel': 'ফোন',
-    'contactPage.phoneValue': '+৮৮০ ১২৩৪-৫৬৭৮৯০',
+    'contactPage.phoneValue': '+৮৮০১৮৮৯৪৮৩৩৩৩',
   },
 }
 

@@ -7,15 +7,6 @@ import LanguageSwitcher from './LanguageSwitcher'
 
 const navLinks = [
   { href: '/', key: 'nav.home' as const },
-  {
-    labelKey: 'nav.about' as const,
-    children: [
-      { href: '/#about', key: 'nav.about' as const },
-      { href: '/team', key: 'nav.team' as const },
-      { href: '/pricing', key: 'nav.pricing' as const },
-      { href: '/faq', key: 'nav.faq' as const },
-    ],
-  },
   { href: '/services', key: 'nav.services' as const },
   { href: '/contact', key: 'nav.contact' as const },
 ]
@@ -86,36 +77,13 @@ export default function Header() {
                 <span></span>
               </span>
               <ul className="cs_nav_list">
-                {navLinks.map((item, i) => {
-                  if ('children' in item && item.children) {
-                    return (
-                      <li key={i} className="menu-item-has-children">
-                        <Link href={item.children[0].href}>
-                          {t(item.labelKey!)}
-                        </Link>
-                        <ul className="dropdown-menu">
-                          {item.children.map((child, j) => (
-                            <li key={j}>
-                              <Link href={child.href} onClick={() => setMobileToggle(false)}>
-                                {t(child.key)}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
-                    )
-                  }
-                  return (
-                    <li key={i}>
-                      <Link
-                        href={(item as { href: string; key: string }).href}
-                        onClick={() => setMobileToggle(false)}
-                      >
-                        {t((item as { href: string; key: string }).key as any)}
-                      </Link>
-                    </li>
-                  )
-                })}
+                {navLinks.map((item, i) => (
+                  <li key={i}>
+                    <Link href={item.href} onClick={() => setMobileToggle(false)}>
+                      {t(item.key)}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

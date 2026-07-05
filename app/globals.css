@@ -653,19 +653,7 @@ p.section-title-descr {
   z-index: 1;
   margin-left: -96px;
 }
-h4.about-title {
-  position: absolute;
-  bottom: 18%;
-  left: 12%;
-  font-size: 20px;
-  line-height: 75px;
-  color: #ffffff;
-  font-weight: 600;
-  font-family: var(--heading-font);
-  margin: 0;
-  background: var(--primary);
-  padding: 0 25px;
-}
+
 .about-box {
   display: flex;
   align-items: center;
@@ -690,9 +678,9 @@ h4.about-title {
   margin: 0;
 }
 .about-text p {
-  width: 92%;
+  width: 100%;
   margin: 0;
-  padding: 16px 0 41px;
+  padding: 16px 0 0;
 }
 
 /* ===== Services ===== */
