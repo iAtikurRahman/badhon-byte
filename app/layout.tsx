@@ -1,21 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fira_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const firaSans = Fira_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--body-font",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--heading-font",
 });
 
 export const metadata: Metadata = {
-  title: "Badhon Byte | Software Solutions",
-  description: "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription. Based in Rajshahi, Bangladesh.",
+  title: {
+    default: "Badhon Byte | Software Solutions",
+    template: "%s | Badhon Byte",
+  },
+  description:
+    "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription. Based in Rajshahi, Bangladesh.",
+  openGraph: {
+    title: "Badhon Byte | Software Solutions",
+    description:
+      "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription.",
+  },
 };
 
 export default function RootLayout({
@@ -26,9 +37,9 @@ export default function RootLayout({
   return (
     <html
       lang="bn"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${firaSans.variable} ${poppins.variable}`}
     >
-      <body className="min-h-full flex flex-col">
+      <body>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

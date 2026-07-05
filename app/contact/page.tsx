@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useTranslation } from '@/components/LanguageProvider'
@@ -18,140 +19,131 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="flex-1">
-        <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
-          <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-            <h1 className="text-3xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-50">{t('contactPage.title')}</h1>
-            <p className="mx-auto mt-3 max-w-2xl text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">
-              {t('contactPage.subtitle')}
-            </p>
+      <main>
+        {/* Breadcrumb */}
+        <section
+          className="breadcumb-area"
+          style={{ backgroundImage: 'linear-gradient(135deg, #050a1e 0%, #0f1a3a 100%)' }}
+        >
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="breadcumb-content">
+              <h4>{t('contactPage.title')}</h4>
+              <ul className="breadcumb-list">
+                <li><Link href="/" style={{ color: '#ff3c00' }}>{t('nav.home')}</Link></li>
+                <li className="list-arrow">&lt;</li>
+                <li>{t('nav.contact')}</li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="grid gap-10 md:grid-cols-2 md:gap-12">
-              <div>
-                <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl dark:text-zinc-50">{t('contactPage.formTitle')}</h2>
-                <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
-                  {t('contactPage.formDesc')}
-                </p>
-
-                <form className="mt-6 space-y-4 sm:mt-8 sm:space-y-6">
-                  <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-zinc-900 dark:text-zinc-50">
+        {/* Contact Form + Info */}
+        <section style={{ padding: '100px 0' }}>
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', margin: '0 -15px', gap: '40px' }}>
+              {/* Form */}
+              <div style={{ flex: '1 1 500px', padding: '0 15px' }}>
+                <div className="section-title text-left">
+                  <h5 className="section-sub-title">{t('contactPage.formTitle')}</h5>
+                  <h1 className="section-main-title">{t('contactPage.formTitle')}</h1>
+                  <p className="section-title-descr">{t('contactPage.formDesc')}</p>
+                </div>
+                <form>
+                  <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                    <div className="form-group" style={{ flex: '1 1 200px' }}>
+                      <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: 500, color: '#050a1e' }}>
                         {t('contactPage.formName')}
                       </label>
-                      <input
-                        type="text"
-                        id="name"
-                        required
-                        className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 transition-colors focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-500"
-                        placeholder={t('contactPage.formNamePlaceholder')}
-                      />
+                      <input type="text" className="form-control" placeholder={t('contactPage.formNamePlaceholder')} required />
                     </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-zinc-900 dark:text-zinc-50">
+                    <div className="form-group" style={{ flex: '1 1 200px' }}>
+                      <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: 500, color: '#050a1e' }}>
                         {t('contactPage.formEmail')}
                       </label>
-                      <input
-                        type="email"
-                        id="email"
-                        required
-                        className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 transition-colors focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-500"
-                        placeholder={t('contactPage.formEmailPlaceholder')}
-                      />
+                      <input type="email" className="form-control" placeholder={t('contactPage.formEmailPlaceholder')} required />
                     </div>
                   </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-zinc-900 dark:text-zinc-50">
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: 500, color: '#050a1e' }}>
                       {t('contactPage.formSubject')}
                     </label>
-                    <select
-                      id="subject"
-                      className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 transition-colors focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
-                    >
+                    <select className="form-control">
                       <option value="">{t('contactPage.formSubjectPlaceholder')}</option>
                       {subjects.map((s) => (
                         <option key={s.value} value={s.value}>{t(s.key)}</option>
                       ))}
                     </select>
                   </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-zinc-900 dark:text-zinc-50">
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: 500, color: '#050a1e' }}>
                       {t('contactPage.formMessage')}
                     </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      required
-                      className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 transition-colors focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder-zinc-500"
-                      placeholder={t('contactPage.formMessagePlaceholder')}
-                    />
+                    <textarea className="form-control" rows={5} placeholder={t('contactPage.formMessagePlaceholder')} required></textarea>
                   </div>
-
-                  <button
-                    type="submit"
-                    className="w-full rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-500 active:bg-indigo-700 sm:w-auto"
-                  >
-                    {t('contactPage.formBtn')}
+                  <button type="submit" className="badhon-btn">
+                    {t('contactPage.formBtn')} &#8594;
                   </button>
                 </form>
               </div>
 
-              <div>
-                <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl dark:text-zinc-50">{t('contactPage.officeTitle')}</h2>
-                <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">{t('contactPage.officeDesc')}</p>
-
-                <div className="mt-6 space-y-5 sm:mt-8 sm:space-y-6">
-                  <div className="flex gap-3 sm:gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/50">
-                      <svg className="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">{t('contactPage.addressLabel')}</h3>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                        {t('contactPage.addressLine1')}
-                        <br />
-                        {t('contactPage.addressLine2')}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3 sm:gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/50">
-                      <svg className="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">{t('contactPage.emailLabel')}</h3>
-                      <p className="break-all text-sm text-zinc-600 dark:text-zinc-400">
-                        {t('contactPage.emailValue')}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3 sm:gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/50">
-                      <svg className="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">{t('contactPage.phoneLabel')}</h3>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                        {t('contactPage.phoneValue')}
-                      </p>
-                    </div>
-                  </div>
+              {/* Office Info */}
+              <div style={{ flex: '1 1 350px', padding: '0 15px' }}>
+                <div className="section-title text-left" style={{ marginBottom: '30px' }}>
+                  <h5 className="section-sub-title">{t('contactPage.officeTitle')}</h5>
+                  <h1 className="section-main-title">{t('contactPage.officeTitle')}</h1>
+                  <p className="section-title-descr">{t('contactPage.officeDesc')}</p>
                 </div>
+
+                {[
+                  {
+                    icon: (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                    ),
+                    label: t('contactPage.addressLabel'),
+                    value: <>{t('contactPage.addressLine1')}<br />{t('contactPage.addressLine2')}</>,
+                  },
+                  {
+                    icon: (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                      </svg>
+                    ),
+                    label: t('contactPage.emailLabel'),
+                    value: t('contactPage.emailValue'),
+                  },
+                  {
+                    icon: (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                      </svg>
+                    ),
+                    label: t('contactPage.phoneLabel'),
+                    value: t('contactPage.phoneValue'),
+                  },
+                ].map((item, i) => (
+                  <div key={i} style={{ display: 'flex', gap: '15px', marginBottom: '25px', padding: '20px', background: '#fafafa', borderRadius: '10px', border: '1px solid #e8e8e8' }}>
+                    <div style={{
+                      width: '50px',
+                      height: '50px',
+                      borderRadius: '50%',
+                      background: 'rgba(255,60,0,0.1)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}>
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '4px', color: '#050a1e' }}>{item.label}</h4>
+                      <p style={{ fontSize: '15px', color: '#7a7a7a', marginBottom: 0 }}>{item.value}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

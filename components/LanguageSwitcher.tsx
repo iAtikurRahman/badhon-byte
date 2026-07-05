@@ -8,7 +8,26 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={() => setLocale(locale === 'bn' ? 'en' : 'bn')}
-      className="rounded-lg border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:border-zinc-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:active:bg-zinc-700 sm:px-4 sm:py-2 sm:text-sm"
+      style={{
+        background: 'rgba(255, 60, 0, 0.1)',
+        border: '1px solid rgba(255, 60, 0, 0.2)',
+        color: '#ff3c00',
+        padding: '8px 16px',
+        borderRadius: '6px',
+        fontSize: '13px',
+        fontWeight: 600,
+        cursor: 'pointer',
+        fontFamily: 'var(--heading-font)',
+        transition: 'all 0.3s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = '#ff3c00'
+        e.currentTarget.style.color = '#fff'
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = 'rgba(255, 60, 0, 0.1)'
+        e.currentTarget.style.color = '#ff3c00'
+      }}
       aria-label={`Switch language to ${locale === 'bn' ? 'English' : 'Bengali'}`}
     >
       {t('lang.switch')}

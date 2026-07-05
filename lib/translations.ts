@@ -5,6 +5,10 @@ export const translations = {
     'nav.pricing': 'Pricing',
     'nav.about': 'About',
     'nav.contact': 'Contact',
+    'nav.team': 'Team',
+    'nav.blog': 'Blog',
+    'nav.faq': 'FAQ',
+    'nav.portfolio': 'Portfolio',
     'lang.switch': 'বাংলা',
 
     'hero.title': 'Software that',
@@ -176,6 +180,10 @@ export const translations = {
     'nav.pricing': 'মূল্য তালিকা',
     'nav.about': 'আমাদের সম্পর্কে',
     'nav.contact': 'যোগাযোগ',
+    'nav.team': 'টিম',
+    'nav.blog': 'ব্লগ',
+    'nav.faq': 'প্রশ্নোত্তর',
+    'nav.portfolio': 'পোর্টফোলিও',
     'lang.switch': 'English',
 
     'hero.title': 'সফটওয়্যার যা',

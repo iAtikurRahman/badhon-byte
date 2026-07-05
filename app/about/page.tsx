@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useTranslation } from '@/components/LanguageProvider'
@@ -17,59 +18,145 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="flex-1">
-        <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
-          <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-            <h1 className="text-3xl font-bold text-zinc-900 sm:text-5xl dark:text-zinc-50">{t('aboutPage.title')}</h1>
-            <p className="mx-auto mt-3 max-w-2xl text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">
-              {t('aboutPage.subtitle')}
-            </p>
+      <main>
+        {/* Breadcrumb */}
+        <section
+          className="breadcumb-area"
+          style={{ backgroundImage: 'linear-gradient(135deg, #050a1e 0%, #0f1a3a 100%)' }}
+        >
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="breadcumb-content">
+              <h4>{t('aboutPage.title')}</h4>
+              <ul className="breadcumb-list">
+                <li><Link href="/" style={{ color: '#ff3c00' }}>{t('nav.home')}</Link></li>
+                <li className="list-arrow">&lt;</li>
+                <li>{t('nav.about')}</li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
-              <div>
-                <h2 className="text-2xl font-bold text-zinc-900 sm:text-3xl dark:text-zinc-50">{t('aboutPage.storyTitle')}</h2>
-                <p className="mt-3 text-sm leading-6 text-zinc-600 sm:mt-4 sm:text-base dark:text-zinc-400">
-                  {t('aboutPage.storyP1')}
-                </p>
-                <p className="mt-3 text-sm leading-6 text-zinc-600 sm:mt-4 sm:text-base dark:text-zinc-400">
-                  {t('aboutPage.storyP2')}
-                </p>
+        {/* Our Story */}
+        <section className="about-area">
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+                <div className="about-thumb">
+                  <div style={{
+                    width: '100%',
+                    height: '400px',
+                    background: 'linear-gradient(135deg, rgba(255,60,0,0.08) 0%, rgba(255,60,0,0.02) 100%)',
+                    borderRadius: '16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(255,60,0,0.1)',
+                  }}>
+                    <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
+                      <circle cx="150" cy="150" r="100" stroke="#ff3c00" strokeWidth="2" fill="rgba(255,60,0,0.03)" />
+                      <path d="M150 70 L190 110 L170 110 L170 180 L130 180 L130 110 L110 110 L150 70Z" fill="rgba(255,60,0,0.2)" />
+                      <text x="150" y="150" textAnchor="middle" fill="#ff3c00" fontSize="16" fontWeight="600">BB</text>
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 sm:p-8 dark:border-zinc-800 dark:bg-zinc-900/50">
-                <h3 className="mb-4 text-base font-semibold text-zinc-900 sm:text-lg dark:text-zinc-50">{t('aboutPage.whyTitle')}</h3>
-                <ul className="space-y-3 text-sm text-zinc-600 sm:space-y-4 dark:text-zinc-400">
-                  {reasons.map((item) => (
-                    <li key={item.title} className="flex gap-3">
-                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                      <div>
-                        <strong className="text-zinc-900 dark:text-zinc-50">{t(item.title)}</strong>
-                        <br />
-                        {t(item.desc)}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+                <div className="section-title text-left">
+                  <h5 className="section-sub-title">{t('aboutPage.title')}</h5>
+                  <h1 className="section-main-title">{t('aboutPage.storyTitle')}</h1>
+                  <p className="section-title-descr">{t('aboutPage.subtitle')}</p>
+                </div>
+                <div className="about-text">
+                  <p style={{ fontSize: '15px', lineHeight: '26px', color: '#7a7a7a', marginBottom: '20px' }}>
+                    {t('aboutPage.storyP1')}
+                  </p>
+                  <p style={{ fontSize: '15px', lineHeight: '26px', color: '#7a7a7a', marginBottom: '25px' }}>
+                    {t('aboutPage.storyP2')}
+                  </p>
+                </div>
+                <Link href="/contact" className="badhon-btn">
+                  {t('contactPage.title')}
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-            <h2 className="text-2xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">{t('aboutPage.officeTitle')}</h2>
-            <p className="mt-3 text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">
-              {t('aboutPage.officeDesc')}
-            </p>
-            <div className="mt-6 inline-flex items-center gap-2 text-sm text-zinc-600 sm:mt-8 dark:text-zinc-400">
-              <svg className="h-5 w-5 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-              </svg>
-              <span className="text-left">{t('aboutPage.officeAddress')}</span>
+        {/* Why Choose Us */}
+        <section style={{ padding: '80px 0', background: '#fafafa' }}>
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '50px' }}>
+              <h5 className="section-sub-title">{t('aboutPage.whyTitle')}</h5>
+              <h1 className="section-main-title">{t('aboutPage.whyTitle')}</h1>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
+              {reasons.map((item) => (
+                <div key={item.title} style={{
+                  flex: '0 0 250px',
+                  background: '#fff',
+                  padding: '35px 25px',
+                  borderRadius: '12px',
+                  textAlign: 'center',
+                  boxShadow: '0 5px 20px rgba(0,0,0,0.05)',
+                  border: '1px solid #e8e8e8',
+                  transition: 'all 0.3s',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.borderColor = '#ff3c00' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#e8e8e8' }}
+                >
+                  <div style={{
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                    background: 'rgba(255,60,0,0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 15px',
+                  }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
+                      <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '8px', color: '#050a1e' }}>
+                    {t(item.title)}
+                  </h3>
+                  <p style={{ fontSize: '14px', lineHeight: '24px', color: '#7a7a7a', marginBottom: 0 }}>
+                    {t(item.desc)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Office */}
+        <section style={{ padding: '80px 0' }}>
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '30px' }}>
+              <h5 className="section-sub-title">{t('aboutPage.officeTitle')}</h5>
+              <h1 className="section-main-title">{t('aboutPage.officeTitle')}</h1>
+              <p className="section-title-descr" style={{ maxWidth: '600px', margin: '0 auto' }}>
+                {t('aboutPage.officeDesc')}
+              </p>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '15px 30px',
+                background: 'rgba(255,60,0,0.05)',
+                borderRadius: '8px',
+                border: '1px solid rgba(255,60,0,0.1)',
+              }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span style={{ fontSize: '16px', color: '#050a1e' }}>{t('aboutPage.officeAddress')}</span>
+              </div>
             </div>
           </div>
         </section>

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -11,185 +12,495 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex-1">
-        {/* Hero */}
-        <section className="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900" />
-          <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-40">
-            <div className="max-w-2xl">
-              <h1 className="text-3xl font-bold leading-tight tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl dark:text-zinc-50">
-                {t('hero.title')}
-                <span className="text-indigo-600"> {t('hero.titleHighlight')} </span>
-                {t('hero.titleEnd')}
+      <main>
+        {/* ===== Hero ===== */}
+        <section
+          className="hero-area d-flex align-items-center"
+          style={{
+            backgroundImage: 'linear-gradient(135deg, #050a1e 0%, #0f1a3a 50%, #1a0a05 100%)',
+          }}
+        >
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }} className="hero-col">
+                <div className="hero-contant">
+                  <h5>BADHON BYTE</h5>
+                  <h1>
+                    {t('hero.title')}{' '}
+                    <span style={{ color: '#ff3c00' }}>{t('hero.titleHighlight')}</span>{' '}
+                    {t('hero.titleEnd')}
+                  </h1>
+                  <p>{t('hero.subtitle')}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
+                    <Link href="/services" className="badhon-btn">
+                      {t('hero.btnServices')}
+                    </Link>
+                    <Link href="/pricing" className="badhon-btn badhon-btn-outline">
+                      {t('hero.btnPricing')}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px', textAlign: 'center' }} className="hero-col">
+                <div className="hero-thumb">
+                  <svg width="400" height="400" viewBox="0 0 400 400" fill="none" style={{ maxWidth: '100%' }}>
+                    <rect x="50" y="80" width="300" height="200" rx="20" fill="rgba(255,60,0,0.15)" stroke="#ff3c00" strokeWidth="2" />
+                    <rect x="80" y="110" width="120" height="20" rx="4" fill="rgba(255,255,255,0.4)" />
+                    <rect x="80" y="145" width="200" height="10" rx="4" fill="rgba(255,255,255,0.2)" />
+                    <rect x="80" y="165" width="180" height="10" rx="4" fill="rgba(255,255,255,0.2)" />
+                    <rect x="80" y="185" width="160" height="10" rx="4" fill="rgba(255,255,255,0.2)" />
+                    <circle cx="90" cy="230" r="15" fill="rgba(255,60,0,0.3)" />
+                    <rect x="115" y="220" width="100" height="20" rx="10" fill="#ff3c00" />
+                    <rect x="50" y="310" width="130" height="45" rx="22" fill="rgba(255,60,0,0.2)" />
+                    <circle cx="210" cy="332" r="8" fill="#ff3c00" />
+                    <circle cx="230" cy="332" r="8" fill="rgba(255,60,0,0.5)" />
+                    <circle cx="250" cy="332" r="8" fill="rgba(255,60,0,0.3)" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== Features ===== */}
+        <section className="feature-area">
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="feature-box">
+              {[
+                { icon: '🖥️', title: t('servicesPage.erpTitle'), desc: t('servicesPage.erpFeature1') },
+                { icon: '💳', title: t('servicesPage.posTitle'), desc: t('servicesPage.posFeature1') },
+                { icon: '🔧', title: t('servicesPage.customTitle'), desc: t('servicesPage.customDesc').slice(0, 60) + '...' },
+                { icon: '☁️', title: t('pricingPage.monthlyFeature2'), desc: t('pricingPage.monthlyFeature1') },
+              ].map((item, i) => (
+                <div key={i} className="feature-sinble-single-box">
+                  <div className="feature-icon" style={{ fontSize: '36px' }}>{item.icon}</div>
+                  <div className="feature-content">
+                    <h3 className="feature-title">{item.title}</h3>
+                    <p className="feature-text">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== About ===== */}
+        <section className="about-area">
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+                <div className="about-thumb">
+                  <div style={{
+                    width: '100%',
+                    height: '400px',
+                    background: 'linear-gradient(135deg, rgba(255,60,0,0.08) 0%, rgba(255,60,0,0.02) 100%)',
+                    borderRadius: '16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(255,60,0,0.1)',
+                  }}>
+                    <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+                      <circle cx="140" cy="140" r="120" stroke="#ff3c00" strokeWidth="2" strokeDasharray="8 4" fill="rgba(255,60,0,0.05)" />
+                      <path d="M140 60 L180 110 L160 110 L160 170 L120 170 L120 110 L100 110 L140 60Z" fill="rgba(255,60,0,0.2)" />
+                      <rect x="110" y="180" width="60" height="40" rx="4" fill="rgba(255,60,0,0.15)" />
+                      <text x="140" y="205" textAnchor="middle" fill="#ff3c00" fontSize="12" fontWeight="600">BADHON BYTE</text>
+                    </svg>
+                  </div>
+                  <h4 className="about-title">{t('aboutPage.officeTitle')}</h4>
+                </div>
+              </div>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+                <div className="section-title text-left">
+                  <h5 className="section-sub-title">{t('aboutPage.title')}</h5>
+                  <h1 className="section-main-title">
+                    {t('aboutPage.storyTitle')}
+                  </h1>
+                  <p className="section-title-descr">{t('aboutPage.storyP1')}</p>
+                </div>
+                <div className="about-box">
+                  <div className="about-icon">
+                    <svg width="45" height="41" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                  </div>
+                  <div className="about-tiltle">
+                    <h3>{t('servicesPage.erpTitle')} &amp; {t('servicesPage.posTitle')}</h3>
+                  </div>
+                </div>
+                <div className="about-text">
+                  <p style={{ fontSize: '15px', lineHeight: '26px', color: '#7a7a7a', marginBottom: '25px' }}>
+                    {t('aboutPage.storyP2')}
+                  </p>
+                </div>
+                <Link href="/about" className="badhon-btn">
+                  {t('aboutPage.title')}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== Services ===== */}
+        <section className="sservice-area" style={{ background: '#fafafa' }}>
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="row" style={{ margin: '0 -15px' }}>
+              <div style={{ flex: '0 0 100%', maxWidth: '100%', padding: '0 15px' }}>
+                <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '50px' }}>
+                  <h5 className="section-sub-title">{t('servicesPage.title')}</h5>
+                  <h1 className="section-main-title">
+                    {t('servicesPage.subtitle')}
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', margin: '0 -15px' }}>
+              {[
+                {
+                  icon: '📊',
+                  title: t('servicesPage.erpTitle'),
+                  desc: t('servicesPage.erpDesc').slice(0, 100) + '...',
+                  link: '/services#erp',
+                },
+                {
+                  icon: '🛒',
+                  title: t('servicesPage.posTitle'),
+                  desc: t('servicesPage.posDesc').slice(0, 100) + '...',
+                  link: '/services#pos',
+                },
+                {
+                  icon: '💻',
+                  title: t('servicesPage.customTitle'),
+                  desc: t('servicesPage.customDesc').slice(0, 100) + '...',
+                  link: '/contact',
+                },
+                {
+                  icon: '📈',
+                  title: t('pricingPage.permanentTitle'),
+                  desc: t('pricingPage.permanentSub') + '. ' + t('pricingPage.permanentExtra'),
+                  link: '/pricing',
+                },
+              ].map((item, i) => (
+                <div key={i} style={{ flex: '0 0 25%', maxWidth: '25%', padding: '0 15px' }}>
+                  <div className="service-single-box">
+                    <div className="service-icon" style={{ fontSize: '48px' }}>{item.icon}</div>
+                    <div className="service-content">
+                      <h3 className="service-title">{item.title}</h3>
+                      <p className="service-text">{item.desc}</p>
+                      <div className="service-btn">
+                        <Link href={item.link}>
+                          <span>&#8594;</span> {t('servicesSection.learnMore')}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== Pricing ===== */}
+        <section className="pricing-area">
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '50px' }}>
+              <h5 className="section-sub-title">{t('pricingPage.title')}</h5>
+              <h1 className="section-main-title">
+                {t('pricingSection.title')}
               </h1>
-              <p className="mt-4 text-base leading-7 text-zinc-600 sm:mt-6 sm:text-lg sm:leading-8 dark:text-zinc-400">
-                {t('hero.subtitle')}
-              </p>
-              <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
-                <Link
-                  href="/services"
-                  className="rounded-lg bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-500 active:bg-indigo-700 sm:px-6"
-                >
-                  {t('hero.btnServices')}
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="rounded-lg border border-zinc-300 px-6 py-3 text-center text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800 dark:active:bg-zinc-700"
-                >
-                  {t('hero.btnPricing')}
-                </Link>
-              </div>
             </div>
-          </div>
-        </section>
-
-        {/* Services Preview */}
-        <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="mb-10 text-center sm:mb-12">
-              <h2 className="text-2xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">{t('servicesSection.title')}</h2>
-              <p className="mt-3 text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">{t('servicesSection.subtitle')}</p>
-            </div>
-            <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-              <div className="rounded-xl border border-zinc-200 p-6 transition-shadow hover:shadow-lg sm:p-8 dark:border-zinc-800">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 sm:h-12 sm:w-12 dark:bg-indigo-900/50">
-                  <svg className="h-5 w-5 text-indigo-600 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-                  </svg>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: '0 -15px' }}>
+              {/* Permanent License */}
+              <div style={{ flex: '0 0 50%', maxWidth: '400px', padding: '0 15px' }}>
+                <div className="pricing-single-box featured" style={{ marginBottom: '30px' }}>
+                  <span className="pricing-badge">{t('pricingPage.permanentBadge')}</span>
+                  <div className="pricing-icon" style={{ fontSize: '48px' }}>🏆</div>
+                  <h3 className="pricing-title">{t('pricingPage.permanentTitle')}</h3>
+                  <p className="pricing-sub">{t('pricingPage.permanentSub')}</p>
+                  <div className="pricing-price">{t('pricingPage.permanentPrice')}</div>
+                  <p className="pricing-extra">{t('pricingPage.permanentExtra')}</p>
+                  <ul className="pricing-features">
+                    {[
+                      'pricingPage.permanentFeature1',
+                      'pricingPage.permanentFeature2',
+                      'pricingPage.permanentFeature3',
+                      'pricingPage.permanentFeature4',
+                      'pricingPage.permanentFeature5',
+                      'pricingPage.permanentFeature6',
+                    ].map((key, i) => (
+                      <li key={i}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="3">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                        {t(key as any)}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/contact" className="badhon-btn" style={{ width: '100%', textAlign: 'center' }}>
+                    {t('pricingPage.permanentBtn')}
+                  </Link>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-zinc-900 sm:text-xl dark:text-zinc-50">{t('servicesSection.erpTitle')}</h3>
-                <p className="mb-4 text-sm leading-6 text-zinc-600 sm:text-base dark:text-zinc-400">{t('servicesSection.erpDesc')}</p>
-                <Link
-                  href="/services#erp"
-                  className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  {t('servicesSection.learnMore')}
-                  <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                </Link>
               </div>
-
-              <div className="rounded-xl border border-zinc-200 p-6 transition-shadow hover:shadow-lg sm:p-8 dark:border-zinc-800">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 sm:h-12 sm:w-12 dark:bg-indigo-900/50">
-                  <svg className="h-5 w-5 text-indigo-600 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-                  </svg>
+              {/* Monthly Service */}
+              <div style={{ flex: '0 0 50%', maxWidth: '400px', padding: '0 15px' }}>
+                <div className="pricing-single-box" style={{ marginBottom: '30px' }}>
+                  <div className="pricing-icon" style={{ fontSize: '48px' }}>🔄</div>
+                  <h3 className="pricing-title">{t('pricingPage.monthlyTitle')}</h3>
+                  <p className="pricing-sub">{t('pricingPage.monthlySub')}</p>
+                  <div className="pricing-price">{t('pricingPage.monthlyPrice')}</div>
+                  <p className="pricing-extra">{t('pricingPage.monthlyExtra')}</p>
+                  <ul className="pricing-features">
+                    {[
+                      'pricingPage.monthlyFeature1',
+                      'pricingPage.monthlyFeature2',
+                      'pricingPage.monthlyFeature3',
+                      'pricingPage.monthlyFeature4',
+                      'pricingPage.monthlyFeature5',
+                      'pricingPage.monthlyFeature6',
+                    ].map((key, i) => (
+                      <li key={i}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="3">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                        {t(key as any)}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/contact" className="badhon-btn badhon-btn-outline" style={{ width: '100%', textAlign: 'center' }}>
+                    {t('pricingPage.monthlyBtn')}
+                  </Link>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-zinc-900 sm:text-xl dark:text-zinc-50">{t('servicesSection.posTitle')}</h3>
-                <p className="mb-4 text-sm leading-6 text-zinc-600 sm:text-base dark:text-zinc-400">{t('servicesSection.posDesc')}</p>
-                <Link
-                  href="/services#pos"
-                  className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  {t('servicesSection.learnMore')}
-                  <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Pricing Preview */}
-        <section className="border-b border-zinc-200 py-16 sm:py-20 dark:border-zinc-800">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="mb-10 text-center sm:mb-12">
-              <h2 className="text-2xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">{t('pricingSection.title')}</h2>
-              <p className="mt-3 text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">{t('pricingSection.subtitle')}</p>
-            </div>
-            <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-              <div className="rounded-xl border-2 border-indigo-600 p-6 sm:p-8 dark:border-indigo-500">
-                <h3 className="mb-1 text-lg font-semibold text-zinc-900 sm:text-xl dark:text-zinc-50">{t('pricingSection.permanentTitle')}</h3>
-                <p className="mb-3 text-sm text-zinc-600 sm:mb-4 dark:text-zinc-400">{t('pricingSection.permanentSub')}</p>
-                <p className="mb-1">
-                  <span className="text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">{t('pricingSection.permanentPrice')}</span>
-                </p>
-                <p className="mb-4 text-sm text-zinc-600 sm:mb-6 dark:text-zinc-400">{t('pricingSection.permanentExtra')}</p>
-                <ul className="mb-6 space-y-2 text-sm text-zinc-600 sm:mb-8 sm:space-y-3 dark:text-zinc-400">
-                  <li className="flex items-center gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                    {t('pricingSection.permanentFeature1')}
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                    {t('pricingSection.permanentFeature2')}
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                    {t('pricingSection.permanentFeature3')}
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                    {t('pricingSection.permanentFeature4')}
-                  </li>
-                </ul>
-                <Link
-                  href="/pricing"
-                  className="block rounded-lg bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-indigo-500 active:bg-indigo-700"
-                >
-                  {t('pricingSection.permanentBtn')}
-                </Link>
+        {/* ===== FAQ ===== */}
+        <section className="faq-area">
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+                <div className="section-title text-left">
+                  <h5 className="section-sub-title">{t('pricingPage.title')}</h5>
+                  <h1 className="section-main-title">{t('pricingPage.faqTitle')}</h1>
+                </div>
+                <div className="faq-thumb" style={{ marginTop: '20px' }}>
+                  <div style={{
+                    width: '100%',
+                    height: '250px',
+                    background: 'linear-gradient(135deg, rgba(255,60,0,0.05) 0%, transparent 100%)',
+                    borderRadius: '16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(255,60,0,0.08)',
+                  }}>
+                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="80" r="40" fill="rgba(255,60,0,0.08)" stroke="#ff3c00" strokeWidth="1.5" />
+                      <text x="100" y="88" textAnchor="middle" fill="#ff3c00" fontSize="28" fontWeight="700">?</text>
+                      <rect x="50" y="135" width="100" height="8" rx="4" fill="rgba(255,60,0,0.15)" />
+                      <rect x="60" y="150" width="80" height="8" rx="4" fill="rgba(255,60,0,0.08)" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-
-              <div className="rounded-xl border border-zinc-200 p-6 sm:p-8 dark:border-zinc-800">
-                <h3 className="mb-1 text-lg font-semibold text-zinc-900 sm:text-xl dark:text-zinc-50">{t('pricingSection.monthlyTitle')}</h3>
-                <p className="mb-3 text-sm text-zinc-600 sm:mb-4 dark:text-zinc-400">{t('pricingSection.monthlySub')}</p>
-                <p className="mb-1">
-                  <span className="text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">{t('pricingSection.monthlyPrice')}</span>
-                </p>
-                <p className="mb-4 text-sm text-zinc-600 sm:mb-6 dark:text-zinc-400">{t('pricingSection.monthlyExtra')}</p>
-                <ul className="mb-6 space-y-2 text-sm text-zinc-600 sm:mb-8 sm:space-y-3 dark:text-zinc-400">
-                  <li className="flex items-center gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                    {t('pricingSection.monthlyFeature1')}
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                    {t('pricingSection.monthlyFeature2')}
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                    {t('pricingSection.monthlyFeature3')}
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                    {t('pricingSection.monthlyFeature4')}
-                  </li>
-                </ul>
-                <Link
-                  href="/pricing"
-                  className="block rounded-lg border border-zinc-300 px-6 py-3 text-center text-sm font-semibold text-zinc-900 transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800 dark:active:bg-zinc-700"
-                >
-                  {t('pricingSection.monthlyBtn')}
-                </Link>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+                <FaqAccordion t={t} />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Preview */}
-        <section className="py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-            <h2 className="text-2xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">{t('contactPreview.title')}</h2>
-            <p className="mt-3 text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">{t('contactPreview.subtitle')}</p>
-            <div className="mx-auto mt-8 max-w-md rounded-xl border border-zinc-200 p-6 dark:border-zinc-800 sm:p-8">
-              <div className="mb-4 flex justify-center">
-                <svg className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
+        {/* ===== Testimonial ===== */}
+        <section
+          className="testimonial-area"
+          style={{ backgroundImage: 'linear-gradient(135deg, #050a1e 0%, #0f1a3a 100%)' }}
+        >
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '50px' }}>
+              <h5 className="section-sub-title" style={{ background: 'rgba(255,60,0,0.2)', color: '#ff3c00' }}>
+                TESTIMONIALS
+              </h5>
+              <h1 className="section-main-title" style={{ color: '#fff' }}>
+                What Our Client <span style={{ color: '#ff3c00' }}>Says</span>
+              </h1>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
+              {[
+                {
+                  text: 'Badhon Byte\'s ERP solution transformed our business operations. Inventory management and accounting are now seamless.',
+                  name: 'Md. Karim',
+                  role: 'Business Owner, Rajshahi',
+                },
+                {
+                  text: 'The POS system is incredibly fast and reliable. Our checkout process has improved dramatically.',
+                  name: 'Fatima Begum',
+                  role: 'Store Manager, Dhaka',
+                },
+                {
+                  text: 'Excellent support team. They customized the software to fit our unique workflow perfectly.',
+                  name: 'Shahidul Islam',
+                  role: 'CEO, TechSolutions Ltd.',
+                },
+              ].map((item, i) => (
+                <div key={i} style={{ flex: '0 0 300px' }}>
+                  <div className="testi-box">
+                    <div className="testi-single-box">
+                      <div className="testi-icon">
+                        <svg width="48" height="36" viewBox="0 0 24 24" fill="#ff3c00" opacity="0.2">
+                          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
+                        </svg>
+                      </div>
+                      <p className="testi-text">{item.text}</p>
+                      <ul className="testi-rating">
+                        {[1,2,3,4,5].map((star) => (
+                          <li key={star}>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffb800">
+                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                          </li>
+                        ))}
+                      </ul>
+                      <h3 className="testi-title">
+                        {item.name}
+                        <span>{item.role}</span>
+                      </h3>
+                    </div>
+                    <div className="testi-author">
+                      <div style={{
+                        width: '60px',
+                        height: '60px',
+                        borderRadius: '50%',
+                        border: '4px solid #fff',
+                        background: '#ff3c00',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        fontWeight: 700,
+                        fontSize: '20px',
+                        margin: '0 auto',
+                      }}>
+                        {item.name[0]}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== Contact ===== */}
+        <section
+          className="contact-area"
+          style={{ background: '#fafafa' }}
+        >
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', margin: '0 -15px' }}>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+                <div className="section-title text-left">
+                  <h5 className="section-sub-title">{t('contactPage.title')}</h5>
+                  <h1 className="section-main-title">
+                    {t('contactPage.subtitle')}
+                  </h1>
+                </div>
+                <form>
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder={t('contactPage.formNamePlaceholder')} required />
+                  </div>
+                  <div className="form-group">
+                    <input type="email" className="form-control" placeholder={t('contactPage.formEmailPlaceholder')} required />
+                  </div>
+                  <div className="form-group">
+                    <select className="form-control">
+                      <option value="">{t('contactPage.formSubjectPlaceholder')}</option>
+                      {['Erp','Pos','Custom','Support','Other'].map((val) => (
+                        <option key={val} value={val.toLowerCase()}>
+                          {t(`contactPage.formSubject${val}` as any)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <textarea className="form-control" rows={5} placeholder={t('contactPage.formMessagePlaceholder')} required></textarea>
+                  </div>
+                  <button type="submit" className="badhon-btn">
+                    {t('contactPage.formBtn')} &#8594;
+                  </button>
+                </form>
               </div>
-              <p className="font-medium text-zinc-900 dark:text-zinc-50">{t('contactPreview.address')}</p>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('contactPreview.location')}</p>
-              <Link
-                href="/contact"
-                className="mt-5 inline-block w-full rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-500 active:bg-indigo-700 sm:w-auto"
-              >
-                {t('contactPreview.btn')}
-              </Link>
+              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+                <div className="contact-box">
+                  <div style={{ textAlign: 'center', padding: '40px' }}>
+                    <div style={{
+                      width: '200px',
+                      height: '200px',
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, rgba(255,60,0,0.1) 0%, rgba(255,60,0,0.02) 100%)',
+                      border: '2px solid rgba(255,60,0,0.2)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      margin: '0 auto',
+                      position: 'relative',
+                    }}>
+                      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="1.5">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                      </svg>
+                    </div>
+                    <div style={{ marginTop: '30px' }}>
+                      <p style={{ fontSize: '16px', color: '#7a7a7a', marginBottom: '10px' }}>
+                        {t('contactPage.addressLine1')}, {t('contactPage.addressLine2')}
+                      </p>
+                      <p style={{ fontSize: '16px', color: '#7a7a7a', marginBottom: '10px' }}>
+                        <strong>{t('contactPage.phoneLabel')}:</strong> {t('contactPage.phoneValue')}
+                      </p>
+                      <p style={{ fontSize: '16px', color: '#7a7a7a' }}>
+                        <strong>{t('contactPage.emailLabel')}:</strong> {t('contactPage.emailValue')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
       <Footer />
     </>
+  )
+}
+
+/* ===== FAQ Accordion Component ===== */
+function FaqAccordion({ t }: { t: (key: any) => string }) {
+  const [openIndex, setOpenIndex] = useState(0)
+
+  const faqs = [
+    { q: 'pricingPage.faqQ1' as const, a: 'pricingPage.faqA1' as const },
+    { q: 'pricingPage.faqQ2' as const, a: 'pricingPage.faqA2' as const },
+    { q: 'pricingPage.faqQ3' as const, a: 'pricingPage.faqA3' as const },
+    { q: 'pricingPage.faqQ4' as const, a: 'pricingPage.faqA4' as const },
+  ]
+
+  return (
+    <div className="feq-content">
+      <h3 className="faq-title">{t('pricingPage.faqTitle')}</h3>
+      <p className="faq-description">
+        {t('pricingPage.subtitle')}
+      </p>
+      <ul className="accordion">
+        {faqs.map((faq, i) => (
+          <li key={i} className={`cs_accordian ${i === openIndex ? 'active' : ''}`}>
+            <a onClick={() => setOpenIndex(i === openIndex ? -1 : i)}>
+              <span>{t(faq.q)}</span>
+            </a>
+            <p>{t(faq.a)}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }

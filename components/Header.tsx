@@ -4,80 +4,136 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useTranslation } from './LanguageProvider'
 import LanguageSwitcher from './LanguageSwitcher'
+import { usePathname } from 'next/navigation'
 
 const navLinks = [
   { href: '/', key: 'nav.home' as const },
+  {
+    labelKey: 'nav.about' as const,
+    children: [
+      { href: '/about', key: 'nav.about' as const },
+      { href: '/team', key: 'nav.team' as const },
+      { href: '/pricing', key: 'nav.pricing' as const },
+      { href: '/faq', key: 'nav.faq' as const },
+    ],
+  },
   { href: '/services', key: 'nav.services' as const },
   { href: '/pricing', key: 'nav.pricing' as const },
-  { href: '/about', key: 'nav.about' as const },
+  {
+    labelKey: 'nav.blog' as const,
+    children: [
+      { href: '/blog', key: 'nav.blog' as const },
+    ],
+  },
   { href: '/contact', key: 'nav.contact' as const },
 ]
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [mobileToggle, setMobileToggle] = useState(false)
+  const [isSticky, setIsSticky] = useState('')
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
   const { t } = useTranslation()
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
-    if (isOpen) {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY
+      if (currentScrollPos > prevScrollPos && currentScrollPos > 80) {
+        setIsSticky('cs-gescout_sticky')
+      } else if (currentScrollPos > 80) {
+        setIsSticky('cs-gescout_show cs-gescout_sticky')
+      } else {
+        setIsSticky('')
+      }
+      setPrevScrollPos(currentScrollPos)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [prevScrollPos])
+
+  useEffect(() => {
+    if (mobileToggle) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = ''
     }
     return () => { document.body.style.overflow = '' }
-  }, [isOpen])
+  }, [mobileToggle])
+
+  const logoStyle = isHome && !isSticky
+    ? { color: '#fff' }
+    : { color: '#050a1e' }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-        <Link href="/" className="text-lg font-bold tracking-tight text-zinc-900 sm:text-xl dark:text-zinc-50">
-          Badhon<span className="text-indigo-600">Byte</span>
-        </Link>
-
-        <div className="flex items-center gap-3 sm:gap-6">
-          <nav className="hidden items-center gap-6 md:flex lg:gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-              >
-                {t(link.key)}
-              </Link>
-            ))}
-          </nav>
-
-          <LanguageSwitcher />
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex flex-col gap-1.5 p-2 md:hidden"
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-          >
-            <span className={`block h-0.5 w-5 bg-zinc-900 transition-all duration-200 dark:bg-zinc-50 ${isOpen ? 'translate-y-2 rotate-45' : ''}`} />
-            <span className={`block h-0.5 w-5 bg-zinc-900 transition-all duration-200 dark:bg-zinc-50 ${isOpen ? 'opacity-0' : ''}`} />
-            <span className={`block h-0.5 w-5 bg-zinc-900 transition-all duration-200 dark:bg-zinc-50 ${isOpen ? '-translate-y-2 -rotate-45' : ''}`} />
-          </button>
-        </div>
-      </div>
-
-      <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
-          isOpen ? 'max-h-64 border-t border-zinc-200 dark:border-zinc-800' : 'max-h-0'
-        }`}
-      >
-        <nav className="space-y-1 bg-white px-4 pb-4 pt-2 dark:bg-black">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="block rounded-lg py-3 pl-3 text-base font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 active:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-700"
-            >
-              {t(link.key)}
+    <header
+      className={`cs_site_header cs_style_1 ${isSticky} ${mobileToggle ? 'cs_mobile_toggle_active' : ''}`}
+    >
+      <div className="cs_main_header">
+        <div className="cs_main_header_in">
+          <div className="cs_main_header_left">
+            <Link href="/" className="cs_site_branding" style={{ textDecoration: 'none' }}>
+              <span style={{
+                fontFamily: 'var(--heading-font)',
+                fontSize: '24px',
+                fontWeight: 700,
+                ...logoStyle,
+              }}>
+                Badhon<span style={{ color: '#ff3c00' }}>Byte</span>
+              </span>
             </Link>
-          ))}
-        </nav>
+          </div>
+          <div className="cs_main_header_center">
+            <div className="cs_nav">
+              <span
+                className={`cs-munu_toggle ${mobileToggle ? 'cs_teggle_active' : ''}`}
+                onClick={() => setMobileToggle(!mobileToggle)}
+              >
+                <span></span>
+              </span>
+              <ul className="cs_nav_list">
+                {navLinks.map((item, i) => {
+                  if ('children' in item && item.children) {
+                    return (
+                      <li key={i} className="menu-item-has-children">
+                        <Link href={item.children[0].href}>
+                          {t(item.labelKey!)}
+                        </Link>
+                        <ul className="dropdown-menu">
+                          {item.children.map((child, j) => (
+                            <li key={j}>
+                              <Link href={child.href} onClick={() => setMobileToggle(false)}>
+                                {t(child.key)}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    )
+                  }
+                  return (
+                    <li key={i}>
+                      <Link
+                        href={(item as { href: string; key: string }).href}
+                        onClick={() => setMobileToggle(false)}
+                      >
+                        {t((item as { href: string; key: string }).key as any)}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="cs_main_header_right">
+            <LanguageSwitcher />
+            <div className="header-btn">
+              <Link href="/contact">
+                {t('hero.btnServices')} &#8594;
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   )
