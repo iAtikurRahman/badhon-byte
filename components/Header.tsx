@@ -4,27 +4,19 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useTranslation } from './LanguageProvider'
 import LanguageSwitcher from './LanguageSwitcher'
-import { usePathname } from 'next/navigation'
 
 const navLinks = [
   { href: '/', key: 'nav.home' as const },
   {
     labelKey: 'nav.about' as const,
     children: [
-      { href: '/about', key: 'nav.about' as const },
+      { href: '/#about', key: 'nav.about' as const },
       { href: '/team', key: 'nav.team' as const },
       { href: '/pricing', key: 'nav.pricing' as const },
       { href: '/faq', key: 'nav.faq' as const },
     ],
   },
   { href: '/services', key: 'nav.services' as const },
-  { href: '/pricing', key: 'nav.pricing' as const },
-  {
-    labelKey: 'nav.blog' as const,
-    children: [
-      { href: '/blog', key: 'nav.blog' as const },
-    ],
-  },
   { href: '/contact', key: 'nav.contact' as const },
 ]
 
@@ -33,8 +25,6 @@ export default function Header() {
   const [isSticky, setIsSticky] = useState('')
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const { t } = useTranslation()
-  const pathname = usePathname()
-  const isHome = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,10 +51,6 @@ export default function Header() {
     return () => { document.body.style.overflow = '' }
   }, [mobileToggle])
 
-  const logoStyle = isHome && !isSticky
-    ? { color: '#fff' }
-    : { color: '#050a1e' }
-
   return (
     <header
       className={`cs_site_header cs_style_1 ${isSticky} ${mobileToggle ? 'cs_mobile_toggle_active' : ''}`}
@@ -72,14 +58,22 @@ export default function Header() {
       <div className="cs_main_header">
         <div className="cs_main_header_in">
           <div className="cs_main_header_left">
-            <Link href="/" className="cs_site_branding" style={{ textDecoration: 'none' }}>
+            <Link href="/" className="cs_site_branding" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{
+                width: '52px',
+                height: '52px',
+                background: '#ff3c00',
+                WebkitMask: 'url(/assets/images/logo.png) center/contain no-repeat',
+                mask: 'url(/assets/images/logo.png) center/contain no-repeat',
+                flexShrink: 0,
+              }} />
               <span style={{
                 fontFamily: 'var(--heading-font)',
                 fontSize: '24px',
                 fontWeight: 700,
-                ...logoStyle,
+                color: '#ff3c00',
               }}>
-                Badhon<span style={{ color: '#ff3c00' }}>Byte</span>
+                BadhonByte
               </span>
             </Link>
           </div>

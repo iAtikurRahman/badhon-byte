@@ -23,7 +23,7 @@ export default function Footer() {
     <div className="footer_main_area">
       <div className="address-area">
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'space-between' }}>
             <div style={{ flex: '1 1 300px' }}>
               <div className="address-box">
                 <div className="address-icon">
@@ -33,7 +33,8 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div className="address-title">
-                  <h3>{t('footer.office')}</h3>
+                  <h3>{t('aboutPage.officeAddress')}</h3>
+                  <span style={{ opacity: 0.6, fontSize: '14px', color: '#fff' }}>{t('footer.officeLocation')}</span>
                 </div>
               </div>
             </div>
@@ -44,10 +45,9 @@ export default function Footer() {
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
                   </svg>
                 </div>
-                <div className="solutek-btn">
-                  <Link href="/contact" className="badhon-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    {t('contactPage.phoneValue')}
-                  </Link>
+                <div className="address-title">
+                  <h3>{t('contactPage.phoneValue')}</h3>
+                  <span style={{ opacity: 0.6, fontSize: '14px', color: '#fff' }}>{t('contactPage.emailValue')}</span>
                 </div>
               </div>
             </div>
@@ -64,10 +64,10 @@ export default function Footer() {
                     fontFamily: 'var(--heading-font)',
                     fontSize: '24px',
                     fontWeight: 700,
-                    color: '#fff',
+                    color: '#ff3c00',
                     textDecoration: 'none',
                   }}>
-                    Badhon<span style={{ color: '#ff3c00' }}>Byte</span>
+                    BadhonByte
                   </Link>
                 </div>
                 <p className="footer-widget-text">{t('footer.desc')}</p>
@@ -116,13 +116,17 @@ export default function Footer() {
             <div style={{ flex: '1.5 1 250px' }}>
               <div className="footer-widget-newsletter">
                 <div className="widget-title">
-                  <h2>{t('footer.office')}</h2>
+                  <h2>Newsletter</h2>
                 </div>
-                <p className="newsletter-text">{t('footer.officeAddress')}, {t('footer.officeLocation')}</p>
-                <p className="newsletter-text" style={{ marginTop: '10px' }}>
-                  <strong style={{ color: '#fff' }}>{t('contactPage.emailLabel')}:</strong>{' '}
-                  {t('contactPage.emailValue')}
-                </p>
+                <p className="newsletter-text">{t('footer.desc')}</p>
+                <div className="form-field2">
+                  <input type="email" placeholder="Your email address" />
+                  <button type="submit" className="subscribe-button">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
