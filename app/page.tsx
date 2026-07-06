@@ -16,7 +16,7 @@ export default function Home() {
         {/* ===== Hero ===== */}
         <section className="hero-area" style={{ background: '#050a1e', overflow: 'hidden' }}>
           {/* Rotating circle decoration */}
-          <div style={{
+          <div className="hero-decoration" style={{
             position: 'absolute',
             right: '-100px',
             top: '50%',
@@ -28,7 +28,7 @@ export default function Home() {
             animation: 'rotateme 30s linear infinite',
             pointerEvents: 'none',
           }} />
-          <div style={{
+          <div className="hero-decoration" style={{
             position: 'absolute',
             right: '50px',
             top: '30%',
@@ -170,7 +170,7 @@ export default function Home() {
                   link: '/contact',
                 },
               ].map((item, i) => (
-                <div key={i} style={{ flex: '0 0 33.333%', maxWidth: '33.333%', padding: '0 15px', display: 'flex' }}>
+                <div key={i} className="service-col" style={{ flex: '0 0 33.333%', maxWidth: '33.333%', padding: '0 15px', display: 'flex' }}>
                   <div className="service-single-box" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                     <div className="service-icon" dangerouslySetInnerHTML={{ __html: item.icon }}></div>
                     <div className="service-content" style={{ flex: 1 }}>
@@ -297,7 +297,7 @@ export default function Home() {
                 'মেসার্স স্বর্ণা অটো রাইস মিলস্, কুষ্টিয়া',
                 'মেসার্স মিয়া অটো রাইস মিলস, ঝিনাইদহ',
               ].map((client, i) => (
-                <div key={i} style={{ flex: '0 0 450px' }}>
+                <div key={i} className="client-card" style={{ flex: '0 0 450px' }}>
                   <div className="testi-box">
                     <div className="testi-single-box" style={{ textAlign: 'center', padding: '50px 40px' }}>
                       <h3 className="testi-title" style={{ fontSize: '24px', color: '#ff3c00', margin: '0 0 8px' }}>
@@ -318,7 +318,7 @@ export default function Home() {
         <section className="contact-area" style={{ background: '#fafafa' }}>
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', margin: '0 -15px' }}>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+              <div className="contact-form-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="section-title text-left">
                   <h5 className="section-sub-title">{t('contactPage.title')}</h5>
                   <h1 className="section-main-title">
@@ -350,7 +350,7 @@ export default function Home() {
                   </button>
                 </form>
               </div>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+              <div className="contact-info-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="contact-box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px', paddingTop: '60px' }}>
                   <div className="contact-video-icon">
                     <div className="play-btn">
@@ -361,7 +361,7 @@ export default function Home() {
                     <span className="contact-video-text">Play</span>
                   </div>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{
+                    <div className="contact-circle" style={{
                       width: '180px',
                       height: '180px',
                       borderRadius: '50%',

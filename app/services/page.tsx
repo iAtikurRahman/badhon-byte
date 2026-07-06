@@ -51,7 +51,7 @@ export default function ServicesPage() {
         <section id="erp" className="about-area">
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
             <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+              <div className="about-text-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="section-title text-left">
                   <h5 className="section-sub-title">NEXORA ERP Software</h5>
                   <h1 className="section-main-title">NEXORA ERP Software</h1>
@@ -68,7 +68,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+              <div className="about-img-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="about-thumb">
                   <div style={{
                     width: '100%',
@@ -100,7 +100,7 @@ export default function ServicesPage() {
         <section id="pos" style={{ padding: '100px 0', background: '#fafafa' }}>
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
             <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+              <div className="about-img-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="about-thumb">
                   <div style={{
                     width: '100%',
@@ -125,7 +125,7 @@ export default function ServicesPage() {
                   <h4 className="about-title">{t('servicesPage.posTitle')}</h4>
                 </div>
               </div>
-              <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
+              <div className="about-text-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="section-title text-left">
                   <h5 className="section-sub-title">{t('servicesPage.posTitle')}</h5>
                   <h1 className="section-main-title">{t('servicesPage.posTitle')}</h1>
