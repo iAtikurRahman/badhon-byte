@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="footer-area">
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
-            <div style={{ flex: '2 1 300px' }}>
+            <div style={{ flex: '2 1 300px', paddingTop: '25px' }}>
               <div className="footer-widget">
                 <div className="footer-logo">
                   <Link href="/" style={{
@@ -48,7 +48,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div style={{ flex: '1 1 250px' }}>
+            <div style={{ flex: '1 1 250px', paddingTop: '25px' }}>
               <div className="footer-widget left">
                 <a href="https://maps.google.com/?q=Level-8+SS+Tower+Fire+Service+Mor+Rajshahi+Bangladesh" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
                   <div style={{ flexShrink: 0, marginTop: '4px' }}>
@@ -64,7 +64,7 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div style={{ flex: '1 1 250px' }}>
+            <div style={{ flex: '1 1 250px', paddingTop: '25px' }}>
               <div className="footer-widget left">
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
                   <div style={{ flexShrink: 0, marginTop: '4px' }}>

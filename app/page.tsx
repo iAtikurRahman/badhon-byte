@@ -118,11 +118,11 @@ export default function Home() {
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
             <div className="feature-box">
               {[
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>', title: t('servicesPage.erpFeature1').split(' ').slice(0,2).join(' '), desc: t('servicesPage.erpFeature1') },
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>', title: 'Digital Marketing', desc: 'Marketing automation & analytics tools' },
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>', title: 'IT Consultation', desc: 'Expert advice on software solutions' },
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>', title: 'Cloud Services', desc: t('pricingPage.monthlyFeature1') },
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>', title: 'Technology', desc: t('servicesPage.erpFeature5') },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>', title: 'Web Application Development', desc: 'Custom web apps built with modern technology' },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>', title: 'Mobile Application Development', desc: 'Native & cross-platform mobile solutions' },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>', title: 'Digital Marketing', desc: 'SEO, social media & paid advertising' },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>', title: 'IT Consultation', desc: 'Expert advice on technology strategy' },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>', title: 'Cloud Services', desc: 'Cloud infrastructure & hosting solutions' },
               ].map((item, i) => (
                 <div key={i} className="feature-sinble-single-box">
                   <div className="feature-icon" dangerouslySetInnerHTML={{ __html: item.icon }}></div>
@@ -149,11 +149,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', margin: '0 -15px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', margin: '0 -15px' }}>
               {[
                 {
                   icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
-                  title: t('servicesPage.erpTitle'),
+                  title: 'NEXORA ERP Software',
                   desc: t('servicesPage.erpDesc').slice(0, 85) + '...',
                   link: '/services#erp',
                 },
@@ -169,17 +169,11 @@ export default function Home() {
                   desc: t('servicesPage.customDesc').slice(0, 85) + '...',
                   link: '/contact',
                 },
-                {
-                  icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
-                  title: t('pricingPage.permanentTitle'),
-                  desc: 'Secure, scalable, and tailored solutions for your business.',
-                  link: '/pricing',
-                },
               ].map((item, i) => (
-                <div key={i} style={{ flex: '0 0 25%', maxWidth: '25%', padding: '0 15px' }}>
-                  <div className="service-single-box">
+                <div key={i} style={{ flex: '0 0 33.333%', maxWidth: '33.333%', padding: '0 15px', display: 'flex' }}>
+                  <div className="service-single-box" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                     <div className="service-icon" dangerouslySetInnerHTML={{ __html: item.icon }}></div>
-                    <div className="service-content">
+                    <div className="service-content" style={{ flex: 1 }}>
                       <h3 className="service-title">{item.title}</h3>
                       <p className="service-text">{item.desc}</p>
                       <div className="service-btn">
@@ -300,8 +294,8 @@ export default function Home() {
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
               {[
-                t('clientSection.client1'),
-                t('clientSection.client2'),
+                'মেসার্স স্বর্ণা অটো রাইস মিলস্, কুষ্টিয়া',
+                'মেসার্স মিয়া অটো রাইস মিলস, ঝিনাইদহ',
               ].map((client, i) => (
                 <div key={i} style={{ flex: '0 0 450px' }}>
                   <div className="testi-box">

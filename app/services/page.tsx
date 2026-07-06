@@ -53,8 +53,8 @@ export default function ServicesPage() {
             <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
               <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="section-title text-left">
-                  <h5 className="section-sub-title">{t('servicesPage.erpTitle')}</h5>
-                  <h1 className="section-main-title">{t('servicesPage.erpTitle')}</h1>
+                  <h5 className="section-sub-title">NEXORA ERP Software</h5>
+                  <h1 className="section-main-title">NEXORA ERP Software</h1>
                   <p className="section-title-descr">{t('servicesPage.erpDesc')}</p>
                 </div>
                 <ul className="pricing-features" style={{ marginBottom: '25px' }}>
@@ -89,7 +89,7 @@ export default function ServicesPage() {
                       <rect x="55" y="150" width="100" height="35" rx="6" fill="#ff3c00" opacity="0.8" />
                     </svg>
                   </div>
-                  <h4 className="about-title">{t('servicesPage.erpTitle')}</h4>
+                  <h4 className="about-title">NEXORA ERP Software</h4>
                 </div>
               </div>
             </div>
