@@ -857,8 +857,10 @@ p.section-title-descr {
 }
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
+  max-width: 860px;
+  margin: 0 auto;
 }
 .pricing-single-box {
   background: #fff;

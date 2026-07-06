@@ -255,36 +255,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Card 2: POS Permanent */}
-              <div className="pricing-single-box featured">
-                <span className="pricing-badge">Popular</span>
-                <div className="pricing-icon" style={{ fontSize: '44px', marginBottom: '10px' }}>🛒</div>
-                <h3 className="pricing-title">{t('servicesPage.posTitle')}</h3>
-                <p className="pricing-sub">{t('pricingPage.permanentSub')}</p>
-                <div className="pricing-price">{t('pricingPage.permanentPrice')}</div>
-                <p className="pricing-extra">{t('pricingPage.permanentExtra')}</p>
-                <ul className="pricing-features">
-                  {[
-                    t('servicesPage.posFeature1'),
-                    t('servicesPage.posFeature2'),
-                    t('servicesPage.posFeature3'),
-                    t('servicesPage.posFeature4'),
-                    t('servicesPage.posFeature5'),
-                  ].map((f, i) => (
-                    <li key={i}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="3">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact" className="badhon-btn" style={{ width: '100%', textAlign: 'center', padding: '14px 20px', fontSize: '14px' }}>
-                  {t('pricingPage.permanentBtn')}
-                </Link>
-              </div>
-
-              {/* Card 3: ERP Monthly */}
+              {/* Card 2: ERP Monthly */}
               <div className="pricing-single-box">
                 <div className="pricing-icon" style={{ fontSize: '44px', marginBottom: '10px' }}>☁️</div>
                 <h3 className="pricing-title">{t('servicesPage.erpTitle')} Monthly</h3>
@@ -312,106 +283,35 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Card 4: POS Monthly */}
-              <div className="pricing-single-box">
-                <div className="pricing-icon" style={{ fontSize: '44px', marginBottom: '10px' }}>🔄</div>
-                <h3 className="pricing-title">{t('servicesPage.posTitle')} Monthly</h3>
-                <p className="pricing-sub">{t('pricingPage.monthlySub')}</p>
-                <div className="pricing-price">{t('pricingPage.monthlyPrice')}</div>
-                <p className="pricing-extra">{t('pricingPage.monthlyExtra')}</p>
-                <ul className="pricing-features">
-                  {[
-                    t('pricingPage.monthlyFeature1'),
-                    t('pricingPage.monthlyFeature3'),
-                    t('pricingPage.monthlyFeature4'),
-                    t('pricingPage.monthlyFeature5'),
-                    t('pricingPage.monthlyFeature6'),
-                  ].map((f, i) => (
-                    <li key={i}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="3">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact" className="badhon-btn badhon-btn-outline" style={{ width: '100%', textAlign: 'center', padding: '14px 20px', fontSize: '14px' }}>
-                  {t('pricingPage.monthlyBtn')}
-                </Link>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* ===== Testimonial ===== */}
+        {/* ===== Our Clients ===== */}
         <section className="testimonial-area" style={{ background: 'linear-gradient(135deg, #0f1a3a 0%, #1a1530 100%)' }}>
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
             <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '50px' }}>
               <h5 className="section-sub-title" style={{ background: '#161a2b', border: '2px solid #40465d', color: '#fff' }}>
-                TESTIMONIALS
+                {t('clientSection.title')}
               </h5>
               <h1 className="section-main-title" style={{ color: '#fff' }}>
-                What Our Client <span>Says</span>
+                {t('clientSection.title')}
               </h1>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
               {[
-                {
-                  text: 'Badhon Byte\'s ERP solution transformed our business operations. Inventory management and accounting are now seamless.',
-                  name: 'Md. Karim',
-                  role: 'Business Owner, Rajshahi',
-                },
-                {
-                  text: 'The POS system is incredibly fast and reliable. Our checkout process has improved dramatically.',
-                  name: 'Fatima Begum',
-                  role: 'Store Manager, Dhaka',
-                },
-                {
-                  text: 'Excellent support team. They customized the software to fit our unique workflow perfectly.',
-                  name: 'Shahidul Islam',
-                  role: 'CEO, TechSolutions Ltd.',
-                },
-              ].map((item, i) => (
-                <div key={i} style={{ flex: '0 0 300px' }}>
+                t('clientSection.client1'),
+                t('clientSection.client2'),
+              ].map((client, i) => (
+                <div key={i} style={{ flex: '0 0 450px' }}>
                   <div className="testi-box">
-                    <div className="testi-single-box">
-                      <div className="testi-icon">
-                        <svg width="48" height="36" viewBox="0 0 24 24" fill="#ff3c00" opacity="0.15">
-                          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
-                        </svg>
-                      </div>
-                      <p className="testi-text">{item.text}</p>
-                      <ul className="testi-rating">
-                        {[1,2,3,4,5].map((star) => (
-                          <li key={star}>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffb800">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                            </svg>
-                          </li>
-                        ))}
-                      </ul>
-                      <h3 className="testi-title">
-                        {item.name}
-                        <span>{item.role}</span>
+                    <div className="testi-single-box" style={{ textAlign: 'center', padding: '50px 40px' }}>
+                      <h3 className="testi-title" style={{ fontSize: '24px', color: '#ff3c00', margin: '0 0 8px' }}>
+                        {client.split(',')[0]}
                       </h3>
-                    </div>
-                    <div className="testi-author">
-                      <div style={{
-                        width: '60px',
-                        height: '60px',
-                        borderRadius: '50%',
-                        border: '4px solid #fff',
-                        background: '#ff3c00',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#fff',
-                        fontWeight: 700,
-                        fontSize: '20px',
-                        margin: '0 auto',
-                      }}>
-                        {item.name[0]}
-                      </div>
+                      <p style={{ color: '#ff3c00', fontSize: '16px', margin: 0, fontWeight: 500 }}>
+                        {client.split(',').slice(1).join(',').trim()}
+                      </p>
                     </div>
                   </div>
                 </div>

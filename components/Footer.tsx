@@ -6,17 +6,6 @@ import { useTranslation } from './LanguageProvider'
 export default function Footer() {
   const { t } = useTranslation()
 
-  const services = [
-    { href: '/services', key: 'nav.services' as const },
-    { href: '/pricing', key: 'nav.pricing' as const },
-  ]
-
-  const usefulLinks = [
-    { href: '/team', key: 'nav.team' as const },
-    { href: '/contact', key: 'nav.contact' as const },
-    { href: '/faq', key: 'nav.faq' as const },
-  ]
-
   return (
     <div className="footer_main_area">
       <div className="address-area">
@@ -59,13 +48,18 @@ export default function Footer() {
               <div className="footer-widget">
                 <div className="footer-logo">
                   <Link href="/" style={{
-                    fontFamily: 'var(--heading-font)',
-                    fontSize: '24px',
-                    fontWeight: 700,
-                    color: '#ff3c00',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px',
                     textDecoration: 'none',
                   }}>
-                    BadhonByte
+                    <img src="/assets/images/logo.png" alt="BadhonByte" style={{ height: '40px', width: 'auto' }} />
+                    <span style={{
+                      fontFamily: 'var(--heading-font)',
+                      fontSize: '24px',
+                      fontWeight: 700,
+                      color: '#ff3c00',
+                    }}>BadhonByte</span>
                   </Link>
                 </div>
                 <p className="footer-widget-text">{t('footer.desc')}</p>
@@ -87,46 +81,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div style={{ flex: '1 1 180px' }}>
-              <div className="footer-widget left">
-                <div className="widget-title">
-                  <h2>{t('footer.quickLinks')}</h2>
-                </div>
-                <ul>
-                  {usefulLinks.map((item, i) => (
-                    <li key={i}><Link href={item.href}>{t(item.key)}</Link></li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div style={{ flex: '1 1 180px' }}>
-              <div className="footer-widget left">
-                <div className="widget-title">
-                  <h2>{t('servicesPage.title')}</h2>
-                </div>
-                <ul>
-                  {services.map((item, i) => (
-                    <li key={i}><Link href={item.href}>{t(item.key)}</Link></li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div style={{ flex: '1.5 1 250px' }}>
-              <div className="footer-widget-newsletter">
-                <div className="widget-title">
-                  <h2>Newsletter</h2>
-                </div>
-                <p className="newsletter-text">{t('footer.desc')}</p>
-                <div className="form-field2">
-                  <input type="email" placeholder="Your email address" />
-                  <button type="submit" className="subscribe-button">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
+
           </div>
           <div className="row copyright" style={{ display: 'flex', flexWrap: 'wrap' }}>
             <div style={{ flex: '1 1 50%' }}>
@@ -134,14 +89,7 @@ export default function Footer() {
                 <p>&copy; {new Date().getFullYear()} Badhon Byte. {t('footer.copyright')}</p>
               </div>
             </div>
-            <div style={{ flex: '1 1 50%', textAlign: 'right' }}>
-              <div className="copyright-list">
-                <ul>
-                  <li><Link href="/contact">{t('nav.contact')}</Link></li>
-                  <li><Link href="/faq">{t('nav.faq')}</Link></li>
-                </ul>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
