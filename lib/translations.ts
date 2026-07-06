@@ -11,10 +11,10 @@ export const translations = {
     'nav.portfolio': 'Portfolio',
     'lang.switch': 'বাংলা',
 
-    'hero.title': 'Software that',
-    'hero.titleHighlight': 'empowers',
-    'hero.titleEnd': 'your business',
-    'hero.subtitle': 'Badhon Byte delivers robust ERP and POS solutions for businesses of all sizes. Permanent licenses with yearly service, or flexible monthly plans \u2014 choose what fits you.',
+    'hero.title': 'Transform Your Business with',
+    'hero.titleHighlight': 'BadhonByte',
+    'hero.titleEnd': '',
+    'hero.subtitle': 'From ERP and POS systems to custom software solutions, BadhonByte provides reliable technology for businesses of every size. Whether you prefer a one-time purchase with yearly maintenance or a flexible monthly subscription, we have a solution tailored to your needs.',
     'hero.btnServices': 'Explore Services',
     'hero.btnPricing': 'View Pricing',
 
@@ -190,10 +190,10 @@ export const translations = {
     'nav.portfolio': 'পোর্টফোলিও',
     'lang.switch': 'English',
 
-    'hero.title': 'সফটওয়্যার যা',
-    'hero.titleHighlight': 'শক্তিশালী করে',
-    'hero.titleEnd': 'আপনার ব্যবসাকে',
-    'hero.subtitle': 'ব্যাডন বাইট সব আকারের ব্যবসার জন্য উন্নত ইআরপি এবং পিওএস সফটওয়্যার সমাধান প্রদান করে। বার্ষিক সার্ভিস ফি সহ স্থায়ী লাইসেন্স অথবা নমনীয় মাসিক প্ল্যান — আপনার জন্য যা সুবিধাজনক।',
+    'hero.title': 'আপনার ব্যবসা পরিবর্তন করুন',
+    'hero.titleHighlight': 'BadhonByte',
+    'hero.titleEnd': 'এর সাথে',
+    'hero.subtitle': 'ইআরপি এবং পিওএস সিস্টেম থেকে শুরু করে কাস্টম সফটওয়্যার সলিউশন, BadhonByte সব আকারের ব্যবসার জন্য নির্ভরযোগ্য প্রযুক্তি সরবরাহ করে। আপনি এককালীন ক্রয় বা নমনীয় মাসিক সাবস্ক্রিপশন যাই পছন্দ করুন না কেন, আপনার প্রয়োজনের জন্য আমাদের কাছে সমাধান রয়েছে।',
     'hero.btnServices': 'সার্ভিসসমূহ দেখুন',
     'hero.btnPricing': 'মূল্য তালিকা দেখুন',
 

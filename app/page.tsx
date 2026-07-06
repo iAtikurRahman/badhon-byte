@@ -43,7 +43,7 @@ export default function Home() {
             <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
               <div style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }} className="hero-content-col">
                 <div className="hero-contant">
-                  <h5>BADHON BYTE</h5>
+                  <h5>BadhonByte IT Service</h5>
                   <h1>
                     {t('hero.title')}{' '}
                     <span style={{ color: '#ff3c00' }}>{t('hero.titleHighlight')}</span>{' '}
@@ -51,9 +51,9 @@ export default function Home() {
                   </h1>
                   <p>{t('hero.subtitle')}</p>
                   <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '30px' }}>
-                    <Link href="/services" className="badhon-btn">
-                      {t('hero.btnServices')}
-                    </Link>
+<a href="#services" className="badhon-btn" style={{ textDecoration: 'none', display: 'inline-block' }}>
+  {t('hero.btnServices')}
+</a>
                     <div className="hero-video-icon">
                       <span>
                         <i>
@@ -137,7 +137,7 @@ export default function Home() {
         </section>
 
         {/* ===== Services ===== */}
-        <section className="sservice-area" style={{ background: '#fafafa' }}>
+        <section id="services" className="sservice-area" style={{ background: '#fafafa' }}>
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
             <div style={{ margin: '0 -15px' }}>
               <div style={{ flex: '0 0 100%', maxWidth: '100%', padding: '0 15px' }}>

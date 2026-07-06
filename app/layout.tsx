@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   },
   description:
     "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription. Based in Rajshahi, Bangladesh.",
+  icons: [
+    { rel: 'icon', url: '/BadhonByte.png', type: 'image/png' },
+  ],
   openGraph: {
     title: "Badhon Byte | Software Solutions",
     description:
