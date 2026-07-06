@@ -8,39 +8,6 @@ export default function Footer() {
 
   return (
     <div className="footer_main_area">
-      <div className="address-area">
-        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'space-between' }}>
-            <div style={{ flex: '1 1 300px' }}>
-              <div className="address-box">
-                <div className="address-icon">
-                  <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                    <circle cx="12" cy="9" r="2.5" />
-                  </svg>
-                </div>
-                <div className="address-title">
-                  <h3>{t('aboutPage.officeAddress')}</h3>
-                  <span style={{ opacity: 0.6, fontSize: '14px', color: '#fff' }}>{t('footer.officeLocation')}</span>
-                </div>
-              </div>
-            </div>
-            <div style={{ flex: '1 1 300px' }}>
-              <div className="address-box2">
-                <div className="address-icon">
-                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                </div>
-                <div className="address-title">
-                  <h3>{t('contactPage.phoneValue')}</h3>
-                  <span style={{ opacity: 0.6, fontSize: '14px', color: '#fff' }}>{t('contactPage.emailValue')}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="footer-area">
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
@@ -81,15 +48,46 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-
+            <div style={{ flex: '1 1 250px' }}>
+              <div className="footer-widget left">
+                <a href="https://maps.google.com/?q=Level-8+SS+Tower+Fire+Service+Mor+Rajshahi+Bangladesh" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
+                  <div style={{ flexShrink: 0, marginTop: '4px' }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                      <circle cx="12" cy="9" r="2.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 style={{ color: '#ff3c00', fontSize: '18px', fontWeight: 700, margin: '0 0 5px' }}>{t('aboutPage.officeAddress')}</h3>
+                    <span style={{ opacity: 0.6, fontSize: '14px', color: '#fff' }}>{t('footer.officeLocation')}</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div style={{ flex: '1 1 250px' }}>
+              <div className="footer-widget left">
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
+                  <div style={{ flexShrink: 0, marginTop: '4px' }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="2">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <a href="tel:+8801889483333" style={{ textDecoration: 'none' }}>
+                      <h3 style={{ color: '#ff3c00', fontSize: '18px', fontWeight: 700, margin: '0 0 5px' }}>{t('contactPage.phoneValue')}</h3>
+                    </a>
+                    <span style={{ opacity: 0.6, fontSize: '14px', color: '#fff' }}>{t('contactPage.emailValue')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="row copyright" style={{ display: 'flex', flexWrap: 'wrap' }}>
             <div style={{ flex: '1 1 50%' }}>
               <div className="copyright-text">
-                <p>&copy; {new Date().getFullYear()} Badhon Byte. {t('footer.copyright')}</p>
+                <p>&copy; 2026 BadhonByte. All rights reserved.</p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
