@@ -15,6 +15,17 @@ export default function ServicesPage() {
     'servicesPage.erpFeature4',
     'servicesPage.erpFeature5',
     'servicesPage.erpFeature6',
+    'servicesPage.erpFeature7',
+    'servicesPage.erpFeature8',
+    'servicesPage.erpFeature9',
+    'servicesPage.erpFeature10',
+    'servicesPage.erpFeature11',
+    'servicesPage.erpFeature12',
+    'servicesPage.erpFeature13',
+    'servicesPage.erpFeature14',
+    'servicesPage.erpFeature15',
+    'servicesPage.erpFeature16',
+    'servicesPage.erpFeature17',
   ] as const
 
   const posFeatures = [
@@ -53,16 +64,14 @@ export default function ServicesPage() {
             <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
               <div className="about-text-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="section-title text-left">
-                  <h5 className="section-sub-title">NEXORA ERP Software</h5>
-                  <h1 className="section-main-title">NEXORA ERP Software</h1>
+                  <h5 className="section-sub-title">Nexra ERP</h5>
+                  <h1 className="section-main-title">Nexra ERP</h1>
                   <p className="section-title-descr">{t('servicesPage.erpDesc')}</p>
                 </div>
                 <ul className="pricing-features" style={{ marginBottom: '25px' }}>
                   {erpFeatures.map((key) => (
-                    <li key={key}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="3">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
+                    <li key={key} style={{ borderBottom: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span style={{ color: '#ff3c00', fontSize: '18px', lineHeight: 1 }}>•</span>
                       {t(key)}
                     </li>
                   ))}
@@ -70,26 +79,18 @@ export default function ServicesPage() {
               </div>
               <div className="about-img-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <div className="about-thumb">
-                  <div style={{
-                    width: '100%',
-                    height: '400px',
-                    background: 'linear-gradient(135deg, rgba(255,60,0,0.08) 0%, rgba(255,60,0,0.02) 100%)',
-                    borderRadius: '16px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid rgba(255,60,0,0.1)',
-                  }}>
-                    <svg width="250" height="250" viewBox="0 0 250 250" fill="none">
-                      <rect x="30" y="40" width="190" height="170" rx="12" stroke="#ff3c00" strokeWidth="2" fill="rgba(255,60,0,0.03)" />
-                      <rect x="55" y="70" width="80" height="14" rx="4" fill="rgba(255,60,0,0.2)" />
-                      <rect x="55" y="94" width="140" height="8" rx="4" fill="rgba(255,60,0,0.1)" />
-                      <rect x="55" y="110" width="120" height="8" rx="4" fill="rgba(255,60,0,0.1)" />
-                      <rect x="55" y="126" width="130" height="8" rx="4" fill="rgba(255,60,0,0.1)" />
-                      <rect x="55" y="150" width="100" height="35" rx="6" fill="#ff3c00" opacity="0.8" />
-                    </svg>
-                  </div>
-                  <h4 className="about-title">NEXORA ERP Software</h4>
+                  <img
+                    src="/ERP_splash.png"
+                    alt="Nexra ERP"
+                    style={{
+                      width: '80%',
+                      height: '320px',
+                      objectFit: 'contain',
+                      borderRadius: '16px',
+                      display: 'block',
+                      margin: '0 auto',
+                    }}
+                  />
                 </div>
               </div>
             </div>
