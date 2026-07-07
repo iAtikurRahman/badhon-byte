@@ -68,7 +68,7 @@ export default function ServicesPage() {
               <p className="section-title-descr">{t('servicesPage.erpDesc')}</p>
             </div>
             {/* Feature list + Image - side by side below */}
-            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
+            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'stretch', margin: '0 -15px' }}>
               <div className="about-text-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
                 <ul className="pricing-features" style={{ marginBottom: '25px' }}>
                   {erpFeatures.map((key) => (
@@ -80,19 +80,30 @@ export default function ServicesPage() {
                 </ul>
               </div>
               <div className="about-img-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
-                <div className="about-thumb">
-                  <img
-                    src="/ERP_splash.png"
-                    alt="Nexra ERP"
-                    style={{
-                      width: '80%',
-                      height: '320px',
-                      objectFit: 'contain',
-                      borderRadius: '16px',
-                      display: 'block',
-                      margin: '0 auto',
-                    }}
-                  />
+                <div className="about-thumb" style={{ height: '100%' }}>
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(135deg, rgba(255,60,0,0.08) 0%, rgba(255,60,0,0.02) 100%)',
+                    borderRadius: '16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(255,60,0,0.1)',
+                    boxSizing: 'border-box',
+                  }}>
+                    <img
+                      src="/ERP_splash.png"
+                      alt="Nexra ERP"
+                      style={{
+                        width: '80%',
+                        maxHeight: '90%',
+                        objectFit: 'contain',
+                        borderRadius: '16px',
+                        display: 'block',
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
