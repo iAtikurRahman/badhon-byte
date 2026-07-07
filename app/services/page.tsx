@@ -125,7 +125,6 @@ export default function ServicesPage() {
                       <rect x="85" y="190" width="80" height="20" rx="4" fill="#ff3c00" opacity="0.8" />
                     </svg>
                   </div>
-                  <h4 className="about-title">{t('servicesPage.posTitle')}</h4>
                 </div>
               </div>
               <div className="about-text-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
