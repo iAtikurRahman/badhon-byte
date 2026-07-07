@@ -71,7 +71,7 @@ export default function ServicesPage() {
                 <ul className="pricing-features" style={{ marginBottom: '25px' }}>
                   {erpFeatures.map((key) => (
                     <li key={key} style={{ borderBottom: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span style={{ color: '#ff3c00', fontSize: '18px', lineHeight: 1 }}>•</span>
+                      <span style={{ color: '#ff3c00', fontSize: '16px', fontWeight: 'bold', lineHeight: 1 }}>✓</span>
                       {t(key)}
                     </li>
                   ))}

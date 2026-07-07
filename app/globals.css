@@ -110,14 +110,7 @@ h5.section-sub-title {
   line-height: 25px;
 }
 h5.section-sub-title::before {
-  position: absolute;
-  content: "";
-  width: 30px;
-  height: 7px;
-  background: var(--primary);
-  border-radius: 30px;
-  left: -8%;
-  top: 14px;
+  display: none;
 }
 h1.section-main-title {
   font-size: 42px;
@@ -131,7 +124,7 @@ h1.section-main-title span {
   color: var(--primary);
 }
 p.section-title-descr {
-  width: 84%;
+  width: 100%;
   margin: 0;
   padding: 19px 0 25px;
 }
