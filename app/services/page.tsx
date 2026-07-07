@@ -113,18 +113,26 @@ export default function ServicesPage() {
         {/* POS Section */}
         <section id="pos" style={{ padding: '100px 0', background: '#fafafa' }}>
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
-            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', margin: '0 -15px' }}>
+            {/* Title + Description - full width above */}
+            <div className="section-title text-left" style={{ marginBottom: '40px' }}>
+              <h5 className="section-sub-title">{t('servicesPage.posTitle')}</h5>
+              <h1 className="section-main-title">{t('servicesPage.posTitle')}</h1>
+              <p className="section-title-descr">{t('servicesPage.posDesc')}</p>
+            </div>
+            {/* Image + Feature list - side by side below */}
+            <div className="row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'stretch', margin: '0 -15px' }}>
               <div className="about-img-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
-                <div className="about-thumb">
+                <div className="about-thumb" style={{ height: '100%' }}>
                   <div style={{
                     width: '100%',
-                    height: '400px',
+                    height: '100%',
                     background: 'linear-gradient(135deg, rgba(255,60,0,0.08) 0%, rgba(255,60,0,0.02) 100%)',
                     borderRadius: '16px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     border: '1px solid rgba(255,60,0,0.1)',
+                    boxSizing: 'border-box',
                   }}>
                     <svg width="250" height="250" viewBox="0 0 250 250" fill="none">
                       <rect x="40" y="30" width="170" height="190" rx="8" stroke="#ff3c00" strokeWidth="2" fill="rgba(255,60,0,0.03)" />
@@ -139,17 +147,10 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className="about-text-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>
-                <div className="section-title text-left">
-                  <h5 className="section-sub-title">{t('servicesPage.posTitle')}</h5>
-                  <h1 className="section-main-title">{t('servicesPage.posTitle')}</h1>
-                  <p className="section-title-descr">{t('servicesPage.posDesc')}</p>
-                </div>
                 <ul className="pricing-features" style={{ marginBottom: '25px' }}>
                   {posFeatures.map((key) => (
-                    <li key={key}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff3c00" strokeWidth="3">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
+                    <li key={key} style={{ borderBottom: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span style={{ color: '#ff3c00', fontSize: '16px', fontWeight: 'bold', lineHeight: 1 }}>✓</span>
                       {t(key)}
                     </li>
                   ))}
