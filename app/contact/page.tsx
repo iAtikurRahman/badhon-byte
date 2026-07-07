@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, FormEvent } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -7,6 +8,8 @@ import { useTranslation } from '@/components/LanguageProvider'
 
 export default function ContactPage() {
   const { t } = useTranslation()
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({})
 
   const subjects = [
     { value: 'erp', key: 'contactPage.formSubjectErp' as const },
@@ -15,6 +18,45 @@ export default function ContactPage() {
     { value: 'support', key: 'contactPage.formSubjectSupport' as const },
     { value: 'other', key: 'contactPage.formSubjectOther' as const },
   ]
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setErrors({})
+
+    const form = e.currentTarget
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim()
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim()
+    const subject = (form.elements.namedItem('subject') as HTMLSelectElement).value
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim()
+
+    const newErrors: typeof errors = {}
+    if (!name) newErrors.name = 'Please enter your name'
+    if (!email) newErrors.email = 'Please enter your email'
+    if (!message) newErrors.message = 'Please enter your message'
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      setStatus('error')
+      return
+    }
+
+    setStatus('sending')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message }),
+      })
+
+      if (!res.ok) throw new Error()
+      setStatus('success')
+      form.reset()
+      setTimeout(() => setStatus('idle'), 4000)
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <>
@@ -48,26 +90,28 @@ export default function ContactPage() {
                   <h1 className="section-main-title">{t('contactPage.formTitle')}</h1>
                   <p className="section-title-descr">{t('contactPage.formDesc')}</p>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit} noValidate>
                   <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
                     <div className="form-group" style={{ flex: '1 1 200px' }}>
                       <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: 500, color: '#050a1e' }}>
                         {t('contactPage.formName')}
                       </label>
-                      <input type="text" className="form-control" placeholder={t('contactPage.formNamePlaceholder')} required />
+                      <input type="text" name="name" className="form-control" placeholder={t('contactPage.formNamePlaceholder')} />
+                      {errors.name && <span style={{ color: '#ff3c00', fontSize: '13px' }}>{errors.name}</span>}
                     </div>
                     <div className="form-group" style={{ flex: '1 1 200px' }}>
                       <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: 500, color: '#050a1e' }}>
                         {t('contactPage.formEmail')}
                       </label>
-                      <input type="email" className="form-control" placeholder={t('contactPage.formEmailPlaceholder')} required />
+                      <input type="email" name="email" className="form-control" placeholder={t('contactPage.formEmailPlaceholder')} />
+                      {errors.email && <span style={{ color: '#ff3c00', fontSize: '13px' }}>{errors.email}</span>}
                     </div>
                   </div>
                   <div className="form-group">
                     <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: 500, color: '#050a1e' }}>
                       {t('contactPage.formSubject')}
                     </label>
-                    <select className="form-control">
+                    <select name="subject" className="form-control">
                       <option value="">{t('contactPage.formSubjectPlaceholder')}</option>
                       {subjects.map((s) => (
                         <option key={s.value} value={s.value}>{t(s.key)}</option>
@@ -78,11 +122,40 @@ export default function ContactPage() {
                     <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: 500, color: '#050a1e' }}>
                       {t('contactPage.formMessage')}
                     </label>
-                    <textarea className="form-control" rows={5} placeholder={t('contactPage.formMessagePlaceholder')} required></textarea>
+                    <textarea name="message" className="form-control" rows={5} placeholder={t('contactPage.formMessagePlaceholder')}></textarea>
+                    {errors.message && <span style={{ color: '#ff3c00', fontSize: '13px' }}>{errors.message}</span>}
                   </div>
-                  <button type="submit" className="badhon-btn">
-                    {t('contactPage.formBtn')} &#8594;
+                  <button type="submit" className="badhon-btn" disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Sending...' : t('contactPage.formBtn')} &#8594;
                   </button>
+                  {status === 'success' && (
+                    <div style={{
+                      marginTop: '15px',
+                      padding: '16px 20px',
+                      background: '#d4edda',
+                      border: '1px solid #c3e6cb',
+                      borderRadius: '8px',
+                      color: '#155724',
+                      fontSize: '15px',
+                      fontWeight: 500,
+                    }}>
+                      ✓ Email sent successfully! We will contact you within 24 hours.
+                    </div>
+                  )}
+                  {status === 'error' && Object.keys(errors).length === 0 && (
+                    <div style={{
+                      marginTop: '15px',
+                      padding: '16px 20px',
+                      background: '#f8d7da',
+                      border: '1px solid #f5c6cb',
+                      borderRadius: '8px',
+                      color: '#721c24',
+                      fontSize: '15px',
+                      fontWeight: 500,
+                    }}>
+                      ✕ Failed to send email. Please try again.
+                    </div>
+                  )}
                 </form>
               </div>
 

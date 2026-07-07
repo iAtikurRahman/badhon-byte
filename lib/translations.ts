@@ -177,7 +177,7 @@ export const translations = {
     'contactPage.formSubjectOther': 'Other',
     'contactPage.formMessage': 'Message',
     'contactPage.formMessagePlaceholder': 'Tell us about your needs...',
-    'contactPage.formBtn': 'Send Message',
+    'contactPage.formBtn': 'Send Now',
     'contactPage.officeTitle': 'Our Office',
     'contactPage.officeDesc': 'Visit us or reach out through any of these channels.',
     'contactPage.addressLabel': 'Address',
