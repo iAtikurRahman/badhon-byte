@@ -63,8 +63,8 @@ export default function ServicesPage() {
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
             {/* Title + Description - full width above */}
             <div className="section-title text-left" style={{ marginBottom: '40px' }}>
-              <h5 className="section-sub-title">Nexra ERP</h5>
-              <h1 className="section-main-title">Nexra ERP</h1>
+              <h5 className="section-sub-title">{t('servicesPage.erpName')}</h5>
+              <h1 className="section-main-title">{t('servicesPage.erpName')}</h1>
               <p className="section-title-descr">{t('servicesPage.erpDesc')}</p>
             </div>
             {/* Feature list + Image - side by side below */}

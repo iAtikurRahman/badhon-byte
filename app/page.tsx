@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -8,6 +8,47 @@ import { useTranslation } from '@/components/LanguageProvider'
 
 export default function Home() {
   const { t } = useTranslation()
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({})
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setErrors({})
+
+    const form = e.currentTarget
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim()
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim()
+    const subject = (form.elements.namedItem('subject') as HTMLSelectElement).value
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim()
+
+    const newErrors: typeof errors = {}
+    if (!name) newErrors.name = 'Please enter your name'
+    if (!email) newErrors.email = 'Please enter your email'
+    if (!message) newErrors.message = 'Please enter your message'
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      setStatus('error')
+      return
+    }
+
+    setStatus('sending')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message }),
+      })
+
+      if (!res.ok) throw new Error()
+      setStatus('success')
+      form.reset()
+      setTimeout(() => setStatus('idle'), 4000)
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <>
@@ -153,7 +194,7 @@ export default function Home() {
               {[
                 {
                   icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
-                  title: 'NEXORA ERP Software',
+                  title: t('servicesSection.erpTitle'),
                   desc: t('servicesPage.erpDesc').slice(0, 85) + '...',
                   link: '/services#erp',
                 },
@@ -215,7 +256,7 @@ export default function Home() {
             <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '50px' }}>
               <h5 className="section-sub-title">{t('pricingPage.title')}</h5>
               <h1 className="section-main-title">
-                Choose Your Best <span>Plan</span>
+                {t('pricingPage.choosePlan')}
               </h1>
               <p style={{ margin: '15px 0 0', color: '#7a7a7a' }}>{t('pricingPage.subtitle')}</p>
             </div>
@@ -295,7 +336,7 @@ export default function Home() {
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
               {[
                 'মেসার্স স্বর্ণা অটো রাইস মিলস্, কুষ্টিয়া',
-                'মেসার্স মিয়া অটো রাইস মিলস, ঝিনাইদহ',
+                'মেসার্স মিঞা অটো রাইস মিলস্, ঝিনাইদহ',
               ].map((client, i) => (
                 <div key={i} className="client-card" style={{ flex: '0 0 450px' }}>
                   <div className="testi-box">
@@ -325,15 +366,17 @@ export default function Home() {
                     {t('contactPage.subtitle')}
                   </h1>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit} noValidate>
                   <div className="form-group">
-                    <input type="text" className="form-control" placeholder={t('contactPage.formNamePlaceholder')} required />
+                    <input type="text" name="name" className="form-control" placeholder={t('contactPage.formNamePlaceholder')} />
+                    {errors.name && <span style={{ color: '#ff3c00', fontSize: '13px' }}>{errors.name}</span>}
                   </div>
                   <div className="form-group">
-                    <input type="email" className="form-control" placeholder={t('contactPage.formEmailPlaceholder')} required />
+                    <input type="email" name="email" className="form-control" placeholder={t('contactPage.formEmailPlaceholder')} />
+                    {errors.email && <span style={{ color: '#ff3c00', fontSize: '13px' }}>{errors.email}</span>}
                   </div>
                   <div className="form-group">
-                    <select className="form-control">
+                    <select name="subject" className="form-control">
                       <option value="">{t('contactPage.formSubjectPlaceholder')}</option>
                       {['Erp','Pos','Custom','Support','Other'].map((val) => (
                         <option key={val} value={val.toLowerCase()}>
@@ -343,11 +386,40 @@ export default function Home() {
                     </select>
                   </div>
                   <div className="form-group">
-                    <textarea className="form-control" rows={5} placeholder={t('contactPage.formMessagePlaceholder')} required></textarea>
+                    <textarea name="message" className="form-control" rows={5} placeholder={t('contactPage.formMessagePlaceholder')}></textarea>
+                    {errors.message && <span style={{ color: '#ff3c00', fontSize: '13px' }}>{errors.message}</span>}
                   </div>
-                  <button type="submit" className="badhon-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    SEND NOW <span>&#8594;</span>
+                  <button type="submit" className="badhon-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }} disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Sending...' : 'SEND NOW'} <span>&#8594;</span>
                   </button>
+                  {status === 'success' && (
+                    <div style={{
+                      marginTop: '15px',
+                      padding: '16px 20px',
+                      background: '#d4edda',
+                      border: '1px solid #c3e6cb',
+                      borderRadius: '8px',
+                      color: '#155724',
+                      fontSize: '15px',
+                      fontWeight: 500,
+                    }}>
+                      ✓ Email sent successfully! We will contact you within 24 hours.
+                    </div>
+                  )}
+                  {status === 'error' && Object.keys(errors).length === 0 && (
+                    <div style={{
+                      marginTop: '15px',
+                      padding: '16px 20px',
+                      background: '#f8d7da',
+                      border: '1px solid #f5c6cb',
+                      borderRadius: '8px',
+                      color: '#721c24',
+                      fontSize: '15px',
+                      fontWeight: 500,
+                    }}>
+                      ✕ Failed to send email. Please try again.
+                    </div>
+                  )}
                 </form>
               </div>
               <div className="contact-info-col" style={{ flex: '0 0 100%', maxWidth: '50%', padding: '0 15px' }}>

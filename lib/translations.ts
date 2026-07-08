@@ -62,6 +62,7 @@ export const translations = {
 
     'servicesPage.title': 'Our Services',
     'servicesPage.subtitle': 'We build software that scales with your business. From ERP to POS and custom development.',
+    'servicesPage.erpName': 'Nexra ERP',
     'servicesPage.erpTitle': 'ERP Software',
     'servicesPage.erpDesc': 'Transform the way you manage your business with Nexra ERP. Nexra ERP is a comprehensive, cloud-ready Enterprise Resource Planning (ERP) solution designed to streamline every aspect of your business operations. From sales, purchasing, inventory, production, finance, and CRM to HR, reporting, and AI-powered insights, Nexra ERP brings everything together in one secure and easy-to-use platform. Whether you\'re managing a single business or multiple factories, warehouses, and branches, Nexra ERP helps you increase productivity, improve decision-making, reduce operational costs, and gain complete control over your business with real-time data and intelligent automation.',
     'servicesPage.erpFeature1': 'Interactive Dashboard with KPI summaries and business analytics',
@@ -104,6 +105,7 @@ export const translations = {
     'servicesPage.customBtn': 'Talk to Us',
 
     'pricingPage.title': 'Pricing',
+    'pricingPage.choosePlan': 'Choose Your Best Plan',
     'pricingPage.subtitle': 'Flexible pricing options for businesses of every size. No hidden fees.',
     'pricingPage.permanentBadge': 'Best Value',
     'pricingPage.permanentTitle': 'Permanent License',
@@ -252,6 +254,7 @@ export const translations = {
 
     'servicesPage.title': 'আমাদের সার্ভিসসমূহ',
     'servicesPage.subtitle': 'আমরা এমন সফটওয়্যার তৈরি করি যা আপনার ব্যবসার সাথে স্কেল করে। ইআরপি থেকে পিওএস এবং কাস্টম ডেভেলপমেন্ট।',
+    'servicesPage.erpName': 'নেক্সরা ইআরপি',
     'servicesPage.erpTitle': 'ইআরপি সফটওয়্যার',
     'servicesPage.erpDesc': 'Nexra ERP এর মাধ্যমে আপনার ব্যবসা পরিচালনার পদ্ধতি পরিবর্তন করুন। Nexra ERP একটি comprehensive, cloud-ready Enterprise Resource Planning (ERP) সমাধান যা আপনার ব্যবসায়িক কার্যক্রমের প্রতিটি দিককে সুসংহত করার জন্য ডিজাইন করা হয়েছে। সেলস, ক্রয়, ইনভেন্টরি, প্রোডাকশন, ফাইন্যান্স, এবং CRM থেকে HR, রিপোর্টিং এবং AI-চালিত অন্তর্দৃষ্টি পর্যন্ত, Nexra ERP সবকিছুকে একটি নিরাপদ এবং সহজ-ব্যবহারযোগ্য প্ল্যাটফর্মে একত্রিত করে। আপনি একটি একক ব্যবসা বা একাধিক কারখানা, গোডাউন এবং শাখা পরিচালনা করুন না কেন, Nexra ERP আপনাকে রিয়েল-টাইম ডেটা এবং ইন্টেলিজেন্ট অটোমেশনের মাধ্যমে উৎপাদনশীলতা বাড়াতে, সিদ্ধান্ত গ্রহণের উন্নতি করতে, অপারেশনাল খরচ কমাতে এবং আপনার ব্যবসার উপর সম্পূর্ণ নিয়ন্ত্রণ পেতে সাহায্য করে।',
     'servicesPage.erpFeature1': 'কেপিআই সারাংশ ও বিজনেস অ্যানালিটিক্স সহ ইন্টারঅ্যাকটিভ ড্যাশবোর্ড',
@@ -294,6 +297,7 @@ export const translations = {
     'servicesPage.customBtn': 'আমাদের সাথে কথা বলুন',
 
     'pricingPage.title': 'মূল্য তালিকা',
+    'pricingPage.choosePlan': 'আপনার সেরা প্ল্যানটি বেছে নিন',
     'pricingPage.subtitle': 'প্রতিটি আকারের ব্যবসার জন্য নমনীয় মূল্য অপশন। কোনো লুকানো ফি নেই।',
     'pricingPage.permanentBadge': 'সেরা মূল্য',
     'pricingPage.permanentTitle': 'স্থায়ী লাইসেন্স',
@@ -348,7 +352,7 @@ export const translations = {
 
     'clientSection.title': 'আমাদের ক্লায়েন্ট',
     'clientSection.client1': 'মেসার্স স্বর্ণা অটো রাইস মিলস্, কুষ্টিয়া',
-    'clientSection.client2': 'মেসার্স মিয়া অটো রাইস মিলস, ঝিনাইদহ',
+    'clientSection.client2': 'মেসার্স মিঞা অটো রাইস মিলস্, ঝিনাইদহ',
 
     'contactPage.title': 'যোগাযোগ করুন',
     'contactPage.subtitle': 'কোনো প্রশ্ন আছে বা শুরু করতে প্রস্তুত? আমরা আপনার কাছ থেকে শুনতে চাই।',
