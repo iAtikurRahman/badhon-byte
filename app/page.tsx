@@ -348,8 +348,8 @@ export default function Home() {
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
               {[
-                'মেসার্স স্বর্ণা অটো রাইস মিলস্, কুষ্টিয়া',
-                'মেসার্স মিঞা অটো রাইস মিলস্, ঝিনাইদহ',
+                { name: 'মেসার্স স্বর্ণা অটো রাইস মিলস্, কুষ্টিয়া', logo: '/sorna.jpg' },
+                { name: 'মেসার্স মিঞা অটো রাইস মিলস্, ঝিনাইদহ', logo: '/mia.jpeg' },
               ].map((client, i) => (
                 <div key={i} className="client-card" style={{ flex: '0 0 450px' }}>
                   <div className="testi-box">
@@ -364,20 +364,22 @@ export default function Home() {
                     onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,60,0,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,60,0,0.4)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
                     onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,60,0,0.15)'; e.currentTarget.style.transform = 'translateY(0)' }}>
                       <div style={{
-                        width: '60px', height: '60px', borderRadius: '50%',
-                        background: 'rgba(255,60,0,0.15)',
+                        width: '80px', height: '80px', borderRadius: '50%',
+                        background: '#fff',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         margin: '0 auto 20px',
+                        overflow: 'hidden',
+                        border: '2px solid rgba(255,60,0,0.2)',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
                       }}>
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff3c00">
-                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
+                        <img src={client.logo} alt={client.name.split(',')[0]}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                       <h3 className="testi-title" style={{ fontSize: '22px', color: '#fff', margin: '0 0 8px', fontWeight: 600 }}>
-                        {client.split(',')[0]}
+                        {client.name.split(',')[0]}
                       </h3>
                       <p style={{ color: '#ff3c00', fontSize: '15px', margin: 0, fontWeight: 500, opacity: 0.9 }}>
-                        {client.split(',').slice(1).join(',').trim()}
+                        {client.name.split(',').slice(1).join(',').trim()}
                       </p>
                     </div>
                   </div>
