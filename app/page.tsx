@@ -351,7 +351,7 @@ export default function Home() {
                 { name: 'মেসার্স স্বর্ণা অটো রাইস মিলস্, কুষ্টিয়া', logo: '/sorna.jpg' },
                 { name: 'মেসার্স মিঞা অটো রাইস মিলস্, ঝিনাইদহ', logo: '/mia.jpeg' },
               ].map((client, i) => (
-                <div key={i} className="client-card" style={{ flex: '0 0 450px' }}>
+                <div key={i} className="client-card" style={{ flex: '1 1 100%', maxWidth: '450px' }}>
                   <div className="testi-box">
                     <div className="testi-single-box" style={{
                       textAlign: 'center', padding: '50px 40px',
