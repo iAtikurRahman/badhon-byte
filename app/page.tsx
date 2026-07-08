@@ -323,10 +323,23 @@ export default function Home() {
         </section>
 
         {/* ===== Our Clients ===== */}
-        <section className="testimonial-area" style={{ background: 'linear-gradient(135deg, #0f1a3a 0%, #1a1530 100%)' }}>
-          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+        <section className="testimonial-area" style={{ background: 'linear-gradient(135deg, #050a1e 0%, #1a0a0a 50%, #0f1a3a 100%)', position: 'relative', overflow: 'hidden' }}>
+          {/* Decorative elements */}
+          <div style={{
+            position: 'absolute', right: '-80px', top: '-80px',
+            width: '300px', height: '300px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,60,0,0.12) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }} />
+          <div style={{
+            position: 'absolute', left: '-60px', bottom: '-60px',
+            width: '200px', height: '200px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,60,0,0.08) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }} />
+          <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px', position: 'relative', zIndex: 2 }}>
             <div className="section-title text-center" style={{ textAlign: 'center', marginBottom: '50px' }}>
-              <h5 className="section-sub-title" style={{ background: '#161a2b', border: '2px solid #40465d', color: '#fff' }}>
+              <h5 className="section-sub-title" style={{ background: 'rgba(255,60,0,0.1)', border: '1px solid rgba(255,60,0,0.3)', color: '#ff3c00' }}>
                 {t('clientSection.title')}
               </h5>
               <h1 className="section-main-title" style={{ color: '#fff' }}>
@@ -340,11 +353,30 @@ export default function Home() {
               ].map((client, i) => (
                 <div key={i} className="client-card" style={{ flex: '0 0 450px' }}>
                   <div className="testi-box">
-                    <div className="testi-single-box" style={{ textAlign: 'center', padding: '50px 40px' }}>
-                      <h3 className="testi-title" style={{ fontSize: '24px', color: '#ff3c00', margin: '0 0 8px' }}>
+                    <div className="testi-single-box" style={{
+                      textAlign: 'center', padding: '50px 40px',
+                      background: 'rgba(255,255,255,0.03)',
+                      borderRadius: '16px',
+                      border: '1px solid rgba(255,60,0,0.15)',
+                      backdropFilter: 'blur(10px)',
+                      transition: 'all 0.3s ease',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,60,0,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,60,0,0.4)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,60,0,0.15)'; e.currentTarget.style.transform = 'translateY(0)' }}>
+                      <div style={{
+                        width: '60px', height: '60px', borderRadius: '50%',
+                        background: 'rgba(255,60,0,0.15)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        margin: '0 auto 20px',
+                      }}>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff3c00">
+                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                      </div>
+                      <h3 className="testi-title" style={{ fontSize: '22px', color: '#fff', margin: '0 0 8px', fontWeight: 600 }}>
                         {client.split(',')[0]}
                       </h3>
-                      <p style={{ color: '#ff3c00', fontSize: '16px', margin: 0, fontWeight: 500 }}>
+                      <p style={{ color: '#ff3c00', fontSize: '15px', margin: 0, fontWeight: 500, opacity: 0.9 }}>
                         {client.split(',').slice(1).join(',').trim()}
                       </p>
                     </div>
