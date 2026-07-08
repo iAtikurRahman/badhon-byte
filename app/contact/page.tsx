@@ -126,7 +126,7 @@ export default function ContactPage() {
                     {errors.message && <span style={{ color: '#ff3c00', fontSize: '13px' }}>{errors.message}</span>}
                   </div>
                   <button type="submit" className="badhon-btn" disabled={status === 'sending'}>
-                    {status === 'sending' ? 'Sending...' : t('contactPage.formBtn')} &#8594;
+                    {status === 'sending' ? t('contactPage.formBtnSending') : t('contactPage.formBtn')} &#8594;
                   </button>
                   {status === 'success' && (
                     <div style={{

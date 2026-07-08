@@ -159,17 +159,17 @@ export default function Home() {
           <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
             <div className="feature-box">
               {[
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>', title: 'Web Application Development', desc: 'Custom web apps built with modern technology' },
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>', title: 'Mobile Application Development', desc: 'Native & cross-platform mobile solutions' },
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>', title: 'Digital Marketing', desc: 'SEO, social media & paid advertising' },
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>', title: 'IT Consultation', desc: 'Expert advice on technology strategy' },
-                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>', title: 'Cloud Services', desc: 'Cloud infrastructure & hosting solutions' },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>', titleKey: 'features.web.title' as const, descKey: 'features.web.desc' as const },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>', titleKey: 'features.mobile.title' as const, descKey: 'features.mobile.desc' as const },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>', titleKey: 'features.marketing.title' as const, descKey: 'features.marketing.desc' as const },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>', titleKey: 'features.it.title' as const, descKey: 'features.it.desc' as const },
+                { icon: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>', titleKey: 'features.cloud.title' as const, descKey: 'features.cloud.desc' as const },
               ].map((item, i) => (
                 <div key={i} className="feature-sinble-single-box">
                   <div className="feature-icon" dangerouslySetInnerHTML={{ __html: item.icon }}></div>
                   <div className="feature-content">
-                    <h3 className="feature-title">{item.title}</h3>
-                    <p className="feature-text">{item.desc}</p>
+                    <h3 className="feature-title">{t(item.titleKey)}</h3>
+                    <p className="feature-text">{t(item.descKey)}</p>
                   </div>
                 </div>
               ))}
@@ -390,7 +390,7 @@ export default function Home() {
                     {errors.message && <span style={{ color: '#ff3c00', fontSize: '13px' }}>{errors.message}</span>}
                   </div>
                   <button type="submit" className="badhon-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }} disabled={status === 'sending'}>
-                    {status === 'sending' ? 'Sending...' : 'SEND NOW'} <span>&#8594;</span>
+                    {status === 'sending' ? t('contactPage.formBtnSending') : t('contactPage.formBtn')} <span>&#8594;</span>
                   </button>
                   {status === 'success' && (
                     <div style={{
