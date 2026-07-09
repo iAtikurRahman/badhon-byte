@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, useRef, FormEvent } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -10,6 +10,12 @@ export default function ContactPage() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({})
+  const mountedRef = useRef(true)
+  const timerRef = useRef<ReturnType<typeof setTimeout>>()
+
+  useEffect(() => {
+    return () => { mountedRef.current = false }
+  }, [])
 
   const subjects = [
     { value: 'erp', key: 'contactPage.formSubjectErp' as const },
@@ -50,11 +56,13 @@ export default function ContactPage() {
       })
 
       if (!res.ok) throw new Error()
-      setStatus('success')
+      if (mountedRef.current) setStatus('success')
       form.reset()
-      setTimeout(() => setStatus('idle'), 4000)
+      timerRef.current = setTimeout(() => {
+        if (mountedRef.current) setStatus('idle')
+      }, 4000)
     } catch {
-      setStatus('error')
+      if (mountedRef.current) setStatus('error')
     }
   }
 

@@ -9,7 +9,7 @@ export default function TestimonialPage() {
   const { t } = useTranslation()
 
   const testimonials = [
-    { text: "Badhon Byte's ERP solution transformed our business operations.", name: 'Client One', role: 'CEO, Company A' },
+    { text: "BadhonByte's ERP solution transformed our business operations.", name: 'Client One', role: 'CEO, Company A' },
     { text: "The POS system is incredibly fast and reliable.", name: 'Client Two', role: 'Manager, Company B' },
     { text: "Excellent support team. Highly recommended!", name: 'Client Three', role: 'Owner, Company C' },
   ]

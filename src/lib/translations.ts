@@ -151,10 +151,10 @@ export const translations = {
     'pricingPage.faqQ4': 'Do you offer customizations?',
     'pricingPage.faqA4': 'Absolutely. We tailor our ERP and POS software to match your specific business processes. Custom development is available for both license types.',
 
-    'aboutPage.title': 'About Badhon Byte',
+    'aboutPage.title': 'About BadhonByte',
     'aboutPage.subtitle': 'We build software that helps businesses grow.',
     'aboutPage.storyTitle': 'Our Story',
-    'aboutPage.storyP1': 'Badhon Byte was founded with a simple mission: make powerful software accessible to businesses of all sizes. Based in Rajshahi, we\u2019ve been delivering ERP, POS, and custom software solutions that streamline operations, reduce costs, and drive growth.',
+    'aboutPage.storyP1': 'BadhonByte was founded with a simple mission: make powerful software accessible to businesses of all sizes. Based in Rajshahi, we\u2019ve been delivering ERP, POS, and custom software solutions that streamline operations, reduce costs, and drive growth.',
     'aboutPage.storyP2': 'We believe in building long-term partnerships with our clients. Every solution we deliver is backed by continuous support, regular updates, and a commitment to quality.',
     'aboutPage.whyTitle': 'Why choose us?',
     'aboutPage.why1Title': 'Experienced Team',

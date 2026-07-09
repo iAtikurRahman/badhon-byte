@@ -17,8 +17,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Badhon Byte | Software Solutions",
-    template: "%s | Badhon Byte",
+    default: "BadhonByte | Software Solution",
+    template: "%s | BadhonByte",
   },
   description:
     "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription. Based in Rajshahi, Bangladesh.",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     { rel: 'icon', url: '/BadhonByte.png', type: 'image/png' },
   ],
   openGraph: {
-    title: "Badhon Byte | Software Solutions",
+    title: "BadhonByte | Software Solution",
     description:
       "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription.",
   },

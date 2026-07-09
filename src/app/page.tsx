@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, FormEvent } from 'react'
+import { useState, useEffect, useRef, FormEvent } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -10,6 +10,12 @@ export default function Home() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({})
+  const mountedRef = useRef(true)
+  const timerRef = useRef<ReturnType<typeof setTimeout>>()
+
+  useEffect(() => {
+    return () => { mountedRef.current = false }
+  }, [])
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -42,11 +48,13 @@ export default function Home() {
       })
 
       if (!res.ok) throw new Error()
-      setStatus('success')
+      if (mountedRef.current) setStatus('success')
       form.reset()
-      setTimeout(() => setStatus('idle'), 4000)
+      timerRef.current = setTimeout(() => {
+        if (mountedRef.current) setStatus('idle')
+      }, 4000)
     } catch {
-      setStatus('error')
+      if (mountedRef.current) setStatus('error')
     }
   }
 
