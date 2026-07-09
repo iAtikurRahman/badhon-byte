@@ -384,7 +384,7 @@ export default function Home() {
                         <img src={client.logo} alt={client.name.split(',')[0]}
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
-                      <h3 className="testi-title" style={{ fontSize: '22px', color: '#fff', margin: '0 0 8px', fontWeight: 600 }}>
+                      <h3 className="testi-title" style={{ fontSize: '18px', color: '#fff', margin: '0 0 8px', fontWeight: 600, whiteSpace: 'nowrap' }}>
                         {client.name.split(',')[0]}
                       </h3>
                       <p style={{ color: '#ff3c00', fontSize: '15px', margin: 0, fontWeight: 500, opacity: 0.9 }}>
