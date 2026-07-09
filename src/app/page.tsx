@@ -11,7 +11,7 @@ export default function Home() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({})
   const mountedRef = useRef(true)
-  const timerRef = useRef<ReturnType<typeof setTimeout>>()
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   useEffect(() => {
     return () => { mountedRef.current = false }
