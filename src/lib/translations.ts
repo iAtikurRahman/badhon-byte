@@ -73,9 +73,9 @@ export const translations = {
 
     'servicesPage.title': 'Our Services',
     'servicesPage.subtitle': 'We build software that scales with your business. From ERP to POS and custom development.',
-    'servicesPage.erpName': 'Nexra ERP',
+    'servicesPage.erpName': 'Nexora ERP',
     'servicesPage.erpTitle': 'ERP Software',
-    'servicesPage.erpDesc': 'Transform the way you manage your business with Nexra ERP. Nexra ERP is a comprehensive, cloud-ready Enterprise Resource Planning (ERP) solution designed to streamline every aspect of your business operations. From sales, purchasing, inventory, production, finance, and CRM to HR, reporting, and AI-powered insights, Nexra ERP brings everything together in one secure and easy-to-use platform. Whether you\'re managing a single business or multiple factories, warehouses, and branches, Nexra ERP helps you increase productivity, improve decision-making, reduce operational costs, and gain complete control over your business with real-time data and intelligent automation.',
+    'servicesPage.erpDesc': 'Transform the way you manage your business with Nexora ERP. Nexora ERP is a comprehensive, cloud-ready Enterprise Resource Planning (ERP) solution designed to streamline every aspect of your business operations. From sales, purchasing, inventory, production, finance, and CRM to HR, reporting, and AI-powered insights, Nexora ERP brings everything together in one secure and easy-to-use platform. Whether you\'re managing a single business or multiple factories, warehouses, and branches, Nexora ERP helps you increase productivity, improve decision-making, reduce operational costs, and gain complete control over your business with real-time data and intelligent automation.',
     'servicesPage.erpFeature1': 'Interactive Dashboard with KPI summaries and business analytics',
     'servicesPage.erpFeature2': 'AI-powered Chatbot for instant business insights',
     'servicesPage.erpFeature3': 'Complete Sales & Purchase Management',
@@ -277,9 +277,9 @@ export const translations = {
 
     'servicesPage.title': 'আমাদের সার্ভিসসমূহ',
     'servicesPage.subtitle': 'আমরা এমন সফটওয়্যার তৈরি করি যা আপনার ব্যবসার সাথে স্কেল করে। ইআরপি থেকে পিওএস এবং কাস্টম ডেভেলপমেন্ট।',
-    'servicesPage.erpName': 'নেক্সরা ইআরপি',
+    'servicesPage.erpName': 'নেক্সোরা ইআরপি',
     'servicesPage.erpTitle': 'ইআরপি সফটওয়্যার',
-    'servicesPage.erpDesc': 'Nexra ERP এর মাধ্যমে আপনার ব্যবসা পরিচালনার পদ্ধতি পরিবর্তন করুন। Nexra ERP একটি ব্যাপক, ক্লাউড-উপযোগী এন্টারপ্রাইজ রিসোর্স প্ল্যানিং (ইআরপি) সমাধান যা আপনার ব্যবসায়িক কার্যক্রমের প্রতিটি দিককে সুসংহত করার জন্য ডিজাইন করা হয়েছে। বিক্রয়, ক্রয়, ইনভেন্টরি, উৎপাদন, অর্থ, এবং গ্রাহক সম্পর্ক ব্যবস্থাপনা (সিআরএম) থেকে মানবসম্পদ (এইচআর), প্রতিবেদন এবং এআই-চালিত অন্তর্দৃষ্টি পর্যন্ত, Nexra ERP সবকিছুকে একটি নিরাপদ এবং সহজ-ব্যবহারযোগ্য প্ল্যাটফর্মে একত্রিত করে। আপনি একটি একক ব্যবসা বা একাধিক কারখানা, গোডাউন এবং শাখা পরিচালনা করুন না কেন, Nexra ERP আপনাকে রিয়েল-টাইম ডেটা এবং ইন্টেলিজেন্ট অটোমেশনের মাধ্যমে উৎপাদনশীলতা বাড়াতে, সিদ্ধান্ত গ্রহণের উন্নতি করতে, অপারেশনাল খরচ কমাতে এবং আপনার ব্যবসার উপর সম্পূর্ণ নিয়ন্ত্রণ পেতে সাহায্য করে।',
+    'servicesPage.erpDesc': 'নেক্সোরা ইআরপি এর মাধ্যমে আপনার ব্যবসা পরিচালনার পদ্ধতি পরিবর্তন করুন। নেক্সোরা ইআরপি একটি ব্যাপক, ক্লাউড-উপযোগী এন্টারপ্রাইজ রিসোর্স প্ল্যানিং (ইআরপি) সমাধান যা আপনার ব্যবসায়িক কার্যক্রমের প্রতিটি দিককে সুসংহত করার জন্য ডিজাইন করা হয়েছে। বিক্রয়, ক্রয়, ইনভেন্টরি, উৎপাদন, অর্থ, এবং গ্রাহক সম্পর্ক ব্যবস্থাপনা (সিআরএম) থেকে মানবসম্পদ (এইচআর), প্রতিবেদন এবং এআই-চালিত অন্তর্দৃষ্টি পর্যন্ত, নেক্সোরা ইআরপি সবকিছুকে একটি নিরাপদ এবং সহজ-ব্যবহারযোগ্য প্ল্যাটফর্মে একত্রিত করে। আপনি একটি একক ব্যবসা বা একাধিক কারখানা, গোডাউন এবং শাখা পরিচালনা করুন না কেন, নেক্সোরা ইআরপি আপনাকে রিয়েল-টাইম ডেটা এবং ইন্টেলিজেন্ট অটোমেশনের মাধ্যমে উৎপাদনশীলতা বাড়াতে, সিদ্ধান্ত গ্রহণের উন্নতি করতে, অপারেশনাল খরচ কমাতে এবং আপনার ব্যবসার উপর সম্পূর্ণ নিয়ন্ত্রণ পেতে সাহায্য করে।',
     'servicesPage.erpFeature1': 'কেপিআই সারাংশ ও ব্যবসায়িক বিশ্লেষণ সহ ইন্টারঅ্যাকটিভ ড্যাশবোর্ড',
     'servicesPage.erpFeature2': 'তাৎক্ষণিক ব্যবসায়িক অন্তর্দৃষ্টির জন্য এআই-চালিত চ্যাটবট',
     'servicesPage.erpFeature3': 'সম্পূর্ণ বিক্রয় ও ক্রয় ব্যবস্থাপনা',

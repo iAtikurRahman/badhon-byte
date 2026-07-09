@@ -94,7 +94,7 @@ export default function ServicesPage() {
                   }}>
                     <img
                       src="/ERP_splash.png"
-                      alt="Nexra ERP"
+                      alt={t('servicesPage.erpName')}
                       style={{
                         width: '80%',
                         maxHeight: '90%',

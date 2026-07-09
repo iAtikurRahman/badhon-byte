@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description:
     "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription. Based in Rajshahi, Bangladesh.",
   keywords: [
-    'ERP', 'POS', 'Nexra ERP', 'production factory software',
+    'ERP', 'POS', 'Nexora ERP', 'production factory software',
     'manufacturing management', 'inventory management', 'supply chain management',
     'warehouse management', 'factory management software',
     'business management system', 'accounting software', 'HR management',
