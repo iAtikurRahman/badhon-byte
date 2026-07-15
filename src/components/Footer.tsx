@@ -20,7 +20,7 @@ export default function Footer() {
                     gap: '10px',
                     textDecoration: 'none',
                   }}>
-                    <img src="/assets/images/logo.png" alt="BadhonByte" style={{ height: '40px', width: 'auto' }} />
+                    <img src="/assets/images/logo.png?v=2" alt="BadhonByte" style={{ height: '40px', width: 'auto' }} />
                     <span style={{
                       fontFamily: 'var(--heading-font)',
                       fontSize: '24px',

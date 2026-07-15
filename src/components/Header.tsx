@@ -50,7 +50,7 @@ export default function Header() {
         <div className="cs_main_header_in">
           <div className="cs_main_header_left">
             <Link href="/" className="cs_site_branding" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <img src="/BadhonByte.png" alt="BadhonByte" style={{ height: '52px', width: 'auto', flexShrink: 0 }} />
+              <img src="/BadhonByte.png?v=2" alt="BadhonByte" style={{ height: '52px', width: 'auto', flexShrink: 0 }} />
               <span style={{
                 fontFamily: 'var(--heading-font)',
                 fontSize: '24px',

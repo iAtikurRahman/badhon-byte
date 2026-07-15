@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   ],
   robots: { index: true, follow: true },
   icons: [
-    { rel: 'icon', url: '/BadhonByte.png', type: 'image/png' },
+    { rel: 'icon', url: '/BadhonByte.png?v=2', type: 'image/png' },
   ],
   openGraph: {
     type: 'website',
@@ -45,14 +45,14 @@ export const metadata: Metadata = {
     title: "BadhonByte | Software Solution",
     description:
       "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription.",
-    images: [{ url: '/BadhonByte.png', width: 512, height: 512 }],
+    images: [{ url: '/BadhonByte.png?v=2', width: 512, height: 512 }],
   },
   twitter: {
     card: 'summary',
     title: "BadhonByte | Software Solution",
     description:
       "ERP and POS software for businesses. Permanent license with yearly service or monthly subscription.",
-    images: ['/BadhonByte.png'],
+    images: ['/BadhonByte.png?v=2'],
   },
   alternates: {
     languages: {
