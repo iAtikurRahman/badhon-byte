@@ -27,7 +27,12 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ success: true, company_name: companyRow.company_name, company_base_url: companyRow.company_base_url })
-  } catch {
-    return NextResponse.json({ error: 'Failed to fetch company information. Please try again later.' }, { status: 500 })
+  } catch (error) {
+    console.error('Auth API error:', error)
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    return NextResponse.json(
+      { error: 'Failed to fetch company information. Please try again later.', detail: message },
+      { status: 500 }
+    )
   }
 }
